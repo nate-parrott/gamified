@@ -1,0 +1,75 @@
+.activity {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #BAA1FF;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 300px;
+	box-shadow: 0 2px 40px rgba(84, 35, 226, 0.5);
+	transform: translate(0, 220px);
+}
+.activity, .activity .chat {
+	transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.activity .coin-count {
+	display: flex;
+	align-items: center;
+	background-color: #5423E2;
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 10px;
+}
+.activity .coin-count img {
+	width: 2em;
+	margin-right: 10px;
+}
+.activity .chat {
+	padding-bottom: 10px;
+	height: 320px;
+	overflow-y: auto;
+	opacity: 0.4;
+}
+.activity:hover {
+	transform: translate(0, 0);
+}
+.activity:hover .chat {
+	opacity: 1;
+}
+.message .bubble, .message .action {
+	border-radius: 10px;
+	padding: 6px;
+	font-size: 17px;
+	line-height: 1.3;
+	display: inline-block;
+}
+.message {
+	padding: 10px;
+	padding-bottom: 0;
+}
+.message .bubble {
+	background-color: #5423E2;
+	color: rgba(255,255,255,0.9);
+	display: block;
+}
+.message.from-admin, .message.from-system {
+	margin-right: 20px;
+}
+.message .action {
+	background-color: #00FFE0;
+	color: black;
+	cursor: default;
+	font-weight: 500;
+}
+.message .action:hover {
+	background-color: #00F1D4;
+}
+.message.from-system .bubble {
+	background-color: #3B364B;
+	color: rgba(255,255,255,0.8);
+	font-size: small;
+	font-family: monospace;
+	cursor: not-allowed;
+	white-space: pre-wrap;
+}

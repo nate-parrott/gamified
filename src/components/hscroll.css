@@ -1,0 +1,18 @@
+.hscroll {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 10%,rgba(0,0,0,1) 90%,rgba(0,0,0,0) 100%);
+	margin-left: -10%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+.hscroll > *:first-child {
+}
+.hscroll > * {
+	flex-shrink: 0;
+}
+.hscroll > *:not(:last-child) {
+	margin-right: 10px;
+}
