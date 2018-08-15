@@ -1,0 +1,43 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="23" cy="23" r="23" transform="translate(10 10) scale(5)" fill="#FFE817"/>
+<circle cx="23" cy="23" r="23" transform="translate(10 10) scale(5)" fill="url(#paint0_angular)"/>
+<circle cx="23" cy="23" r="23" transform="translate(240 240) scale(5) rotate(-180)" fill="url(#paint1_angular)"/>
+<circle cx="21" cy="21" r="21" transform="translate(20 20) scale(5)" fill="#FFE817"/>
+<circle cx="19" cy="19" r="19" transform="translate(30 30) scale(5)" fill="url(#paint2_linear)"/>
+<circle cx="19" cy="19" r="18.5" transform="translate(30 30) scale(5)" stroke="black" stroke-opacity="0.03"/>
+<g filter="url(#filter0_ii)">
+<path d="M13.4 15.12C14.3067 9.97333 14.76 5.68 14.76 2.24C14.76 1.97333 14.76 1.73333 14.76 1.52L14.68 0C17.5333 1.25333 19.96 2.10667 21.96 2.56C21.64 5.86667 21.1733 9.12 20.56 12.32C19.9733 15.4933 19.4533 17.84 19 19.36L18.36 21.64C16.5467 21.64 14.64 21.96 12.64 22.6L11.64 22.92L8.28 10.84C7.50667 13.7467 6.68 17.8 5.8 23C4.76 22.6267 3.68 22.0933 2.56 21.4C1.44 20.68 0.586667 19.9733 0 19.28C0.293333 16.6933 0.746667 14.1067 1.36 11.52C2 8.93333 2.57333 6.98667 3.08 5.68L3.8 3.76C5.82667 3.01333 8.21333 2.46667 10.96 2.12L13.4 15.12Z" transform="translate(72.1143 65) scale(5)" fill="#FFE817"/>
+</g>
+<defs>
+<filter id="filter0_ii" x="72.1143" y="65" width="109.8" height="115" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0.5" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="-0.5" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+</filter>
+<radialGradient id="paint0_angular" cx="0.5" cy="0.5" r="0.5" gradientUnits="userSpaceOnUse" gradientTransform="translate(46) scale(46) rotate(90)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.425414" stop-color="white" stop-opacity="0.451923"/>
+<stop offset="0.574586" stop-color="white" stop-opacity="0.8"/>
+<stop offset="0.685083" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_angular" cx="0.5" cy="0.5" r="0.5" gradientUnits="userSpaceOnUse" gradientTransform="translate(46) scale(46) rotate(90)">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.425414" stop-color="white" stop-opacity="0.451923"/>
+<stop offset="0.574586" stop-color="white" stop-opacity="0.8"/>
+<stop offset="0.685083" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint2_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48.75 6.5) scale(45.7739) rotate(111.801)">
+<stop stop-color="#E9D312"/>
+<stop offset="1" stop-color="#DCC80C"/>
+</linearGradient>
+</defs>
+</svg>

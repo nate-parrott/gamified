@@ -93,10 +93,12 @@ h3 {
 	box-sizing: border-box;
 	border: 3px solid black;
 	padding-bottom: 52%;
+}
+.hover-offset {
 	box-shadow: 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1);
 	transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
-.tile:hover {
+.hover-offset:hover {
 	box-shadow: 1px 1px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1), 3px 3px 0 rgba(0,0,0,1), 4px 4px 0 rgba(0,0,0,1), 5px 5px 0 rgba(0,0,0,1), 6px 6px 0 rgba(0,0,0,1);
 	transform: translate(-5px, -5px);
 }
