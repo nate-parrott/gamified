@@ -2,10 +2,9 @@ import React from 'react'
 import './modalPlayer.css';
 import { uuid } from './utils';
 
-const outgoingAnimDuration = 1000;
-
 export class ModalItem {
 	constructor(render) {
+		// render: (full: bool) -> content
 		this.identifier = uuid();
 		this.render = render;
 	}
@@ -62,23 +61,6 @@ export default class ModalPlayer extends React.Component {
 			}
 		}
 		return <div className='ModalPlayer' onClick={onPlayerClick}>{itemView}</div>;
-		
-		// return (
-		// 	<div className='ModalPlayer'>
-		// 	{
-		// 		items.map((item, i) => {
-		// 			let offset = i - itemIndex;
-		// 			if (offset < -1 || offset > 3) {
-		// 				let className = offset < 0 ? 'offset--2' : 'offset-4';
-		// 				return <ModalItemView classes={[ className ]} renderContent={false} key={item.identifier} item={item} />;
-		// 			}
-		// 			let onBack = i > 0 ? this.back.bind(this) : null;
-		// 			let onForward = this.forward.bind(this);
-		// 			return <ModalItemView classes={[ `offset-${offset}` ]} renderContent={true} key={item.identifier} item={item} onBack={onBack} onForward={onForward} onDismiss={this.dismiss.bind(this)}  />;
-		// 		})
-		// 	}
-		// 	</div>
-		// )
 	}
 	back() {
 		this.advance(-1);
