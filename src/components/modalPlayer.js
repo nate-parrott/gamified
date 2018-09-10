@@ -26,7 +26,6 @@ const ModalItemView = ({ item, onBack, onForward, onDismiss, offset }) => {
 			<div className='content'>{ content }</div>
 			{onBack ? <div className='control back' onClick={onBack} key='back' /> : null}
 			{onForward ? <div className='control forward' onClick={onForward} key='forward' /> : null}		
-			<div className='control dismiss' onClick={onDismiss}>Dismiss</div>
 		</div>
 	)
 }

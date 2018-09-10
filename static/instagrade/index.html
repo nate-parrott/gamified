@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Evolving InstaGrade</title>
+	<link rel='stylesheet' href='../writeup.css'/>
+	<meta charset='utf-8'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+	<!--OPEN-->
+	<div id='instagrade' class='content' data-portfolio-segment='/instagrade/index.html'>
+		<link rel='stylesheet' href='/instagrade/ig.css'/>
+		<!-- http://instagradeformbuilder.appspot.com/UqqgFIhqV-oXwAciWJkpOm65WQiRWGgPwOGqqfv2gtVBojRY98xhI18Kl_xaHR5d0veZJdpMcpZ0-zNci5HJzmwetQzltkpzjZxd4pB6hw4= -->
+		<section>
+			<img src='/instagrade/product.png' class='wide'/>
+			<h1>Evolving InstaGrade</h1>
+		</section>
+		<section>
+			<p>
+				In <strong>2014,</strong> I decided to redesign my iOS app, InstaGrade – <strong>an app for teachers to grade multiple-choice tests with an iPhone camera.</strong> I'd originally built the app in 2012, visually refreshed it and fixed bugs – but in 2014, armed with more than a year of user feedback, I decided to <strong>completely redesign it</strong>.
+			</p>
+		</section>
+		<!-- <p>
+			On-and-off for more than three years, I've built and maintained an app called <a href='http://instagradeapp.com'>InstaGrade.</a> Back in 2012, I looked at the "bubble sheets" we used to take multiple-choice tests in high-school – which I'd heard were expensive, required bulky scanning machines, and didn't offer any value besides printing out a grade – and wondered <em>why can't multiple-choice tests be scanned with an iPhone app?</em>
+		</p>
+		<p>
+			I spent lots of nights and weekends researching computer-vision algorithms, playing with different kinds of answer sheets, and refining a complicated page-recognition and de-skewing process that'd allow iPhones to grade multiple-choice test sheets. I built a product, and shipped it, and of course, it wasn't perfect. I wasn't a teacher, and I didn't know what teachers needed. After about a year or so of slowly acquiring users and gathering their feedback, <strong>I decided to completely redesign the app.</strong> This is the story of the 2014 InstaGrade redesign.
+		</p> -->
+		<section>
+			<h2>InstaGrade, pre-redesign</h2>
+			<figure>
+				<img src='/instagrade/old.png'/>
+				<figcaption>InstaGrade in 2013 – I visually revamped the app for the iOS 7 launch, but the overall layout and user experience stayed the same.</figcaption>
+			</figure>
+			<p>InstaGrade v1 was a standalone app – there were two answer sheets (a 24 and a 56-question version) that teachers could print out. Answers would appear inside the app, and grade reports could be exported as a PDF.</p>
+		</section>
+		
+		<section>
+			<h2>Increasing Customization</h2>
+			<p>A recurring theme from InstaGrade user feedback was <strong>customization</strong> – different teachers had different needs, and no one answer sheet was perfect.</p>
+			<blockquote>I need 5 answer choices (A-E) and the ability to select multiple answers</blockquote>
+			<blockquote>It'd be nice to have shorter answer sheets with less than 24 questions, so my students aren't confused</blockquote>
+			<blockquote>I need to give different point weights to different questions.</blockquote>
+			<blockquote>True or false questions!</blockquote>
+			<p>Since so many teachers had so many different requirements, I decided to ditch one-size-fits-all answer sheets in favor of an <strong>online quiz builder</strong> that would generate quizzes question-by-question. This had a couple added benefits:
+				<ul>
+					<li>Rather than printing separate question sheets <em>and</em> answer sheets, customizable answer sheets could have questions on the same page</li>
+					<li>Quizzes could have spaces for writing short-answer questions that'd be graded by teachers manually during the scan flow.</li>
+					<li>Answer sheets could have barcodes embedded <em>linking them</em> with the quiz they represented.</li>
+				</ul>
+			</p>
+			
+			<p>I figured that teachers wouldn't want to type quiz questions into their phones, so I settled on an online quiz builder. This took InstaGrade from a standalone iPhone app to a cross-platform, account-based online service. <strong>This complicated the user flow significantly–a downside I hoped would be justified by the increased functionality</strong>.<p>
+				
+			<figure>
+				<img src='/instagrade/user_flow.png' class='wide'/>
+				<figcaption>User flow for InstaGrade v1 and v2 – v2 allows quizzes to be created on a computer, at the cost of increased complexity.</figcaption>
+			</figure>
+			
+			<figure>
+						<img src='/instagrade/builder.png' class='wide'/>
+						<figcaption>The what-you-see-is-what-you-get quiz builder.</figcaption>
+					</figure>
+		</section>
+		
+		<!-- <figure>
+			<img src='builder.png' class='wide'/>
+			<figcaption>The what-you-see-is-what-you-get quiz builder.</figcaption>
+		</figure> -->
+		
+		<!-- <div class='two-pane'>
+			<div>
+				<img src='builder.png'/>
+			</div>
+			<div>
+				<p>The quiz builder ended up being a what-you-see-is-what-you-get React application with a handful of "question types" – a row of "template" 	question types sit at the bottom, and can be clicked to be added to the quiz as editable option types. Once created, quizzes are "saved" to a user's account – an iPhone with the app installed, logged into the same account, recognized the barcode on printed quizzes and grades them, emailing the results to the user.</p>
+			</div>
+		</div> -->
+		
+		<section>
+			<h2>Revamping the scanning screen</h2>
+			<p>
+				I redesigned InstaGrade's scanning screen with a couple goals in mind:			
+				<ul>
+					<li>
+						<strong>Better accuracy with continuous scanning</strong> – InstaGrade v1 required users to tap the screen to start scanning. A frequent customer complaint was that scans would fail, but would work fine if scanned again. This seemed like an unavoidable technical issue –  camera position or random image noise caused a certain percentage of scans to fail, and re-scanning solved this. Rather than requiring users to tap the shutter button multiple times, I moved to an <strong>automatic scanning model</strong> – the app would continuously scan whatever was in its view, and the most recent successful scan would appear anchored to the bottom of the screen until <em>saved</em> or <em>dismissed.</em>
+					</li>
+					<li>
+						<strong>Simplified screen with larger camera viewfinder</strong>. When scanning, teachers are shuffling papers and switching focus between their desks and their phone screens – the more complex the scan screen, the more cognitive load it is to context-switch back to the app.
+					</li>
+				</ul>
+			</p>
+			<img src='/instagrade/scan_screen_comparison.png' class='x-wide'/>
+		</section>
+		<!-- <img src='anim.gif' class='float'/>
+		<p>A downside of the new scanning interface was that <strong>it isn't immediately apparent how to view scan results.</strong> I used animation to show graded quizzes "flying" into the button users press to view scan results.</p> -->
+		
+		<!-- <figure>
+			<img src='scan-animation.gif'/>
+			<figcaption>
+				A downside of the new scanning interface was that <strong>it isn't immediately apparent how to view scan results.</strong> I used animation to show graded quizzes "flying" into the button users press to view scan results.
+			</figcaption>
+		</figure> -->
+		
+		<section>
+			<hr/>
+			<div class='captioned-animation'>
+				<img src='/instagrade/anim.gif'/>
+				<p>A downside of the new scanning interface was that <strong>it isn't immediately apparent how to view previously scanned quizzes.</strong> It helps that there's only one button – still, I used an animation as an affordance to show users where their graded quizzes could be found.</p>
+			</div>
+		
+			<hr/>
+		</section>
+		
+		<section>
+			<h2>Tying web and iOS together with a consistent brand</h2>
+			<!-- <figure>
+				<img src='logo-iterations.png'/>
+				<figcaption>
+					Early iterations of the InstaGrade logo, from pre-1.0 to v2.
+				</figcaption>
+			</figure> -->
+			<figure>
+				<img src='/instagrade/brand.png'/>
+			</figure>
+			<p>
+					I didn't begin the InstaGrade project with a consistent brand in mind. As I iterated on the visual style pre-v2, a brand identity developed slowly – for the redesign, I codified it, picking a single accent color and a pair of typefaces. I tried to compelement these with simple illustrated graphics, and while they aren't the most aesthetically pleasing, they still play an important role breaking up the monotony of text in places like the onboarding flow.
+			</p>
+		</section>
+		
+		<section>
+			<h2>Outcome</h2>
+			<p>
+				I'd characterize the outcome of the redesign as a <em>mediocre success</em>. Existing users were excited to be able to build customized quizzes, and some adopted them enthusiastically. However, I worry that the added complexity of hopping across platforms – building quizzes on the web and scanning them on a phone – hurt new-user adoption. If I were to redesign InstaGrade <em>again</em>, I'd probably make quiz customization an <em>optional</em> feature – users would be able to sign up and scan generic answer sheets without ever signing up on the web. I'd try to balance the experience between the two extremes of <em>old InstaGrade</em> and <em>new InstaGrade</em> – a simple new-user experience that allows users to ramp up customization gradually.
+			</p>
+			<p>
+				<a class='cta' href='http://instagradeapp.com'>Visit the InstaGrade website</a>
+			</p>
+		</section>
+		
+		<!-- PULL QUOTES! -->
+		
+		<!-- deleting quizzes -->
+		<!-- user education -->
+		<!-- DATA VISUALIZATION FOR QUIZ RESULTS ("your quiz, example") -->
+	</div>
+	<!--CLOSE-->
+</body>
+</html>

@@ -6,6 +6,8 @@ import intro from "../images/intro.svg"
 import workflow from "../images/workflow.svg"
 import Trophy from '../components/trophy.js';
 import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
+import { web } from '../components/playlistHelpers.js';
+import { withPrefix } from 'gatsby-link'
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -28,6 +30,10 @@ export default class IndexPage extends React.Component {
 		let items = [0,1,2,3,4,5].map((i) => new ModalItem(() => <div className='testItem'>Page {i}</div>));
 		this.setState({playlist: new ModalPlaylist(items)});
 	}
+	playWithRewards(rewardId, items) {
+		// TODO: rewards
+		this.setState({ playlist: new ModalPlaylist(items) });
+	}
 	render() {
 		return (
 		  <div className='index-page'>
@@ -43,10 +49,10 @@ export default class IndexPage extends React.Component {
 				<div className='readable-width section'>
 					<h3>Learn about things I’ve made! <div className='tooltip'>1 point per click</div></h3>
 					<div className='content-tiles'>
-						<Tile src={hab} alt="Design and branding for a beginner-friendly hackathon" />
-						<Tile src={flashlight} alt="A popular natural-language interface to Mac OS" />
-						<Tile src={instagrade} alt="An app that grades paper quizzes instantly" />	
-						<Tile src={zest} alt="A spice rack powered by computer vision" />
+						<Tile src={hab} alt="Design and branding for a beginner-friendly hackathon" onClick={ () => this.playWithRewards('hab', [ web(withPrefix('/hab/index.html')) ]) } />
+						<Tile src={flashlight} alt="A popular natural-language interface to Mac OS" onClick={ () => this.playWithRewards('flashlight', [ web(withPrefix('/flashlight/index.html')) ]) } />
+						<Tile src={instagrade} alt="An app that grades paper quizzes instantly" onClick={ () => this.playWithRewards('instagrade', [ web(withPrefix('/instagrade/index.html')) ]) } />	
+						<Tile src={zest} alt="A spice rack powered by computer vision" onClick={ () => this.playWithRewards('zest', [ web('http://zest.nateparrott.com/') ]) } />
 					</div>
 				</div>
 				<div className='cashcash section'>
@@ -67,8 +73,8 @@ export default class IndexPage extends React.Component {
 				<div className='readable-width section'>
 					<h3>Why not consume more content? <div className='tooltip'>1 point per click</div></h3>
 					<div className='content-tiles'>
-						<Tile src={table} alt="An augmented-reality table prototype" />
-						<Tile src={subway} alt="An subway map that visualizes travel time" />
+						<Tile src={table} alt="An augmented-reality table prototype" onClick={ () => this.playWithRewards('table', [ web('http://table.nateparrott.com/') ]) } />
+						<Tile src={subway} alt="An subway map that visualizes travel time" onClick={ () => this.playWithRewards('subway', [ web('http://subway.nateparrott.com/') ]) } />
 					</div>
 				</div>
 				<div className='readable-width boxed-content section'>
@@ -100,10 +106,10 @@ export default class IndexPage extends React.Component {
 				<div className='readable-width section'>
 					<h3>There’s so much rewarding content!<div className='tooltip'>1 point per click</div></h3>
 					<div className='content-tiles'>
-						<Tile src={content} alt="An app for creating exciting animations" />
+						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ]) } />
 						<Tile src={stacks} alt="An app for making your own social network" />
-						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" />
-						<Tile src={babynames} alt="A neural network for generating new baby names" />
+						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ web('https://www.rhymeswithreason.co/') ]) } />
+						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ]) } />
 					</div>
 				</div>
 				<div className='readable-width boxed-content section'>
@@ -123,6 +129,6 @@ export default class IndexPage extends React.Component {
 	}
 }
 
-let Tile = ({src, alt}) => (
-	<div className='tile hover-offset' style={{backgroundImage: `url(${src})`}} alt={alt} />
+let Tile = ({src, alt, onClick}) => (
+	<div className='tile hover-offset' style={{backgroundImage: `url(${src})`}} alt={alt} onClick={onClick} />
 )

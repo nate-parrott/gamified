@@ -1,0 +1,34 @@
+#stacks {
+	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+}
+#stacks a, #stacks .big-question em {
+	text-decoration: none;
+	border-bottom: 3px solid rgba(200,40,130,0.3);
+}
+#stacks .big-question {
+	font-size: 25px;
+	text-align: center;
+	font-weight: bold;
+	box-sizing: border-box;
+	border-left: 1em solid transparent;
+	border-right: 1em solid transparent;
+	line-height: 1.3;
+	text-transform: lowercase;
+	letter-spacing: -1px;
+}
+
+@media screen and (min-width: 700px) {
+	#stacks .big-question {
+		font-size: 35px;
+		border-left: 2em solid transparent;
+		border-right: 2em solid transparent;
+	}
+}
+
+#stacks .big-question em {
+	
+}
+
+#stacks h2 {
+	text-align: center;
+}

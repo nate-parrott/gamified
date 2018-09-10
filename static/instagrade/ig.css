@@ -1,0 +1,19 @@
+@import 'https://fonts.googleapis.com/css?family=Merriweather';
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i';
+
+#instagrade {
+	font-family: "Lato", sans-serif;
+}
+
+#instagrade blockquote {
+	font-family: 'Merriweather', 'Georgia', serif;
+	font-size: small;
+}
+@media screen and (min-width: 650px) {
+	#instagrade blockquote {
+		font-size: 1em;
+	}
+}
+#instagrade .cta {
+	background-color: #0ca5b0;
+}

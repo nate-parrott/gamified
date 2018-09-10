@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flashlight – designing a natural-language interface</title>
+	<link rel='stylesheet' href='../writeup.css'/>
+	<meta charset='utf-8'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+	<!--OPEN-->
+	<div class='content' id='flashlight' data-portfolio-segment='/flashlight/index.html'>
+		<link rel='stylesheet' href='/flashlight/flashlight.css'/>
+		<!-- 
+		Tilted spotlight window with contact shadow
+			vs.
+		Website-like blue confetti background with flashlight logo and title
+		
+		- initial story + press coverage (little bit)
+		- design of natural-language commands
+			- emphasis on keywords
+				- pull quote: "very quickly, i learned users valued short key commands"
+					- this tells me about the user base
+			- education of users about commands
+				
+		- designing the site + brand
+			- various iterations
+			- individual product pages on the site
+		
+		- community feedback
+			- the request list
+		
+		- conclusion
+			- apple
+			- tilted cascade of press coverage
+		-->
+		
+		<section class='main backgrounded'>
+			<img src='/flashlight/fl.png' style='max-width: 500px'/>
+			<h1>Flashlight: Designing a Natural-Language Interface to OS X</h1>
+		</section>
+		
+		<section>
+			<p>
+				In late 2014, I began working on an OS X "hack" to allow people to write "plugins" for OS X's Spotlight search engine. After writing a couple simple plugins – you'd type "weather in Brooklyn" and it'd show you a forecast inside the Spotlight window – I posted it on Product Hunt and went offline. When I came back online, it'd received hundreds of upvotes, writeups in <a href='http://thenextweb.com/apps/2014/11/12/flashlight-os-xs-yosemite-spotlight/'>The Next Web</a> and <a href='https://www.macstories.net/mac/flashlight-extends-os-x-yosemites-spotlight-with-plugins/'>MacStories</a> – and all of a sudden, I was the sole developer and designer of a utility with thousands of users. This is a little overview of <strong>how I iterated on Flashlight's design and marketing as the project grew.</strong>
+			</p>
+		</section>
+		
+		<section>
+			<h2>The problem: speeding up simple tasks using natural language</h2>
+			<p>
+				I built Flashlight because I saw the potential of natural-language widgets to perform simple tasks incredibly quickly – tasks like creating calendar events, setting reminders, placing phone calls or generating lorem-ipsum text. I chose to integrate these into Spotlight, OS X's native search feature, because it's easy to access, and is already used by millions of people:
+			</p>
+			<img src='/flashlight/typical_plugin_breakdown.png' class='wide'/>
+		</section>
+		
+		<section>
+			<h2>Learning and differentiating from competitors</h2>
+			<p>
+				As I began spending more time on Flashlight, I asked myself – <strong>why should Flashlight even exist?</strong> Similar products exists – I looked at a number of competitors and asked <strong>what I could learn from them</strong> and how I could <strong>differentiate Flashlight</strong> from them:
+			</p>
+			
+			<div class='cards'>
+				<div class='in-column'>
+					<div class='cards-table'>
+						<div>
+							<img class='icon' src='/flashlight/alfred_icon.png'/>
+							<p><strong>Alfred</strong> is a standalone shortcut utility and application launcher that focuses on end-user customizability. I saw Flashlight as a more <strong>mass-market alternative</strong> to Alfred – it'd integrate more seamlessly into the system, and would focus more on out-of-the-box functionality, rather than customization.</p>
+						</div>
+						<div>
+							<img class='icon' src='/flashlight/google_icon.png'/>
+							<p>I actually saw Flashlight as a competitor to <strong>Google Search</strong> – Google understands many of the same natural-language queries as Flashlight in areas like weather and reminders, but Flashlight, as a native app installed on a Mac, had a potential to offer much better integration with users' digital lives.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section>
+			<img src='/flashlight/programs.png' class='full'/>
+		</section>
+		
+		<section>
+			<h2>Natural language vs. syntactic shortcuts</h2>
+			<p>I'd built an API that made it fairly easy to define different phrases that would trigger plugins. Early iterations of Flashlight forcused on <strong>verbose, Siri-like commands:</strong></p>
+			<blockquote class='spotlight'>what's the weather in new york</blockquote>
+			<blockquote class='spotlight'>google images of rubber ducks</blockquote>
+			<blockquote class='spotlight'>send an text to chen: what's up?</blockquote>
+			<p>Very quickly, I learned that users didn't actually like these verbose commands. People asked for <strong>shorter, more concise commands</strong> that relied on an implied syntax:</p>
+			<blockquote class='spotlight'>weather new york</blockquote>
+			<blockquote class='spotlight'>gi rubber ducks</blockquote>
+			<blockquote class='spotlight'>sms chen: what's up?</blockquote>
+			<p>Users' feedback about preferring concise shortcuts to more natural language strongly influenced the design of Flashlight in the future. Since less-natural commands are less discoverable, I redesigned the plugin catalog to <strong>emphasize example command usage:</strong></p>
+			<img src='/flashlight/plugin_examples_evolution.png'/>
+		</section>
+		
+		<section>
+			<h2>Getting feedback and data</h2>
+			<p>
+				Initially, Flashlight product development was driven by two things: my own personal desires, and people who asked me for new features on Twitter. As Flashlight grew, I built out more ways to learn about users' needs and desires for the product:
+			</p>
+			
+			<div class='cards feedback-cards'>
+				<div class='in-column'>
+					<div class='cards-table'>
+						<div>
+							<img src='/flashlight/ideaboard.png'/>
+							<p><strong>Ideaboard</strong> – a page for users to propose and upvote new functionality with as little effort as possible.</p>
+						</div>
+				
+						<div>
+							<img src='/flashlight/feedback.png'/>
+							<p><strong>Feedback page</strong> – linked from the About box, collecting comments from any user.</p>
+						</div>
+				
+						<div>
+							<img src='/flashlight/download_counts.png'/>
+							<p><strong>Download count tracking</strong> helped me learn which plugins were most attractive to users, and deserved the most attention.</p>
+						</div>
+				
+						<div>
+							<img src='/flashlight/github.png'/>
+							<p><strong>GitHub issues</strong> – collecting more technical feedback from more technical and involved users.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<p>Each of these sources proved useful in different ways – together, they really helped me prioritize new functionality to develop, and existing functionality to work on.</p>
+		</section>
+		
+		<section>
+			<h2>Brand and Marketing: Explaining Flashlight</h2>
+			<p>
+				Flashlight's initial user base was, naturally, very tech-savvy and developer-skewed – the type of people who read "Spotlight Plugin System" and know what that means. As I developed Flashlight further, I tried to develop the website and brand to appeal to "ordinary users" – and this meant actively <strong>showing them what Flashlight let them do.</strong> This is apparent in the development of the website:
+			</p>
+			
+			<figure>
+				<img src='/flashlight/early_website.png'/>
+				<figcaption>The first Flashlight website – to a user who isn't sure what "plugins" or "Spotlight" are, it's pretty unclear what the product does.</figcaption>
+			</figure>
+			
+			<figure>
+				<img src='/flashlight/middle_website.png'/>
+				<figcaption>A second iteration of the website – a little more descriptive, but not very visually explanatory.</figcaption>
+			</figure>
+			
+			<figure>
+				<img src='/flashlight/last_website.png'/>
+				<figcaption>The latest website focused on visually demonstrating what Flashlight does. It also included publicly-browseable pages for all plugins, so individual plugins could be linked to directly.</figcaption>
+			</figure>
+			
+			<figure>
+				<img src='/flashlight/animation-loop.gif' style='max-width: 400px'/>
+				<figcaption style='max-width: 450px'>On the latest website, an animation cycles through some of the top plugins, demonstrating various features.</figcaption>
+			</figure>
+		</section>
+		
+		<section>
+			<h2>Outcome</h2>
+			<p>Flashlight was an incredible learning experience – it got hundreds of thousands of downloads, and I heard from hundreds of users whose lives were made more productive by Flashlight. It got press accolades, and even got noticed by Apple. I started as an intern on the Spotlight team in May 2015 – the same day an OS X update inadvertently made Flashlight stop working. Today, Spotlight can actually do a lot of what Flashlight could (though I didn't work on these features directly – they certainly aren't "copied from Flashlight" as some people assume).</p>
+			<img src='/flashlight/press_cascade.png' class='full'/>
+		</section>
+	</div>
+	<!--CLOSE-->
+</body>
+</html>
