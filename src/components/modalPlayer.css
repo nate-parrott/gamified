@@ -20,8 +20,9 @@
 	top: 4%;
 	bottom: 4%;
 	background-color: white;
-	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-	box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+/*	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+*/
+	border: 3px solid black;
 }
 
 .ModalItemView .control {
@@ -52,34 +53,14 @@
 	background-image: url(../images/forward-arrow.svg);
 }
 
-/*.ModalPlayer > * {
-	position: absolute;
-	left: 4%;
-	right: 4%;
-	top: 4%;
-	bottom: 4%;
-	background-color: white;
-	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-	box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+.ModalItemView.offset_1 {
+	z-index: -1;
+	transform: translate(6px, 6px);
+	opacity: 0.8;
 }
 
-.ModalPlayer > .offset-3 {
-	transform: rotate(1deg) scale(0.9);
+.ModalItemView.offset_2 {
+	z-index: -2;
+	transform: translate(12px, 12px);
+	opacity: 0.6;
 }
-
-.ModalPlayer > .offset-2 {
-	transform: rotate(-3deg), scale(0.95);
-}
-
-.ModalPlayer > .offset-1 {
-	transform: rotate(2deg);
-}
-
-.ModalPlayer > .offset--1 {
-	transform: translate(-100vw, 0), rotate(20deg);
-}
-
-.ModalPlayer > .offset--2 {
-	opacity: 0;
-}
-*/
