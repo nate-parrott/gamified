@@ -1,0 +1,29 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+
+#hab {
+	font-family: "Roboto", sans-serif;
+}
+
+#hab section:first-child {
+	margin-top: 0;
+}
+
+#hab section:first-child img {
+	margin: 0;
+}
+
+#hab .large {
+	font-weight: lighter;
+	text-align: center;
+	line-height: 1.4;
+}
+
+@media screen and (min-width: 600px) {
+	#hab .large {
+		font-size: 2em;
+	}
+}
+
+#hab .cta {
+	background-color: #F1494C;
+}
