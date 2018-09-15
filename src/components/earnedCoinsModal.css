@@ -1,0 +1,72 @@
+.earnedCoinsModalItem {
+	background-color: #5423E2;
+}
+.earnedCoinsModalItem > .content {
+	height: 100%;
+} 
+.EarnedCoinsModal {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.EarnedCoinsModal .blurb {
+	width: 80%;
+	text-align: center;
+	color: white;
+	z-index: 1;
+}
+
+.EarnedCoinsModal .count {
+	font-size: 10vh;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.EarnedCoinsModal .title {
+	font-size: 5vh;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.EarnedCoinsModal .subtitle {
+	font-size: 3vh;
+	opacity: 0.8;
+}
+
+.EarnedCoinsModal .title, .EarnedCoinsModal .subtitle, .EarnedCoinsModal .doneButton {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.EarnedCoinsModal .dummy {
+	opacity: 0;
+}
+
+.EarnedCoinsModal .doneButton {
+	background-color: #FFE817;
+	font-size: 3vh;
+	padding: 0.5em 1em;
+	color: #5423E2;
+	display: inline-block;
+	margin-top: 1em;
+	cursor: default;
+}
+
+.EarnedCoinsModal .sunburst {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -100vw;
+	margin-top: -100vw;
+	width: 200vw;
+	height: 200vw;
+	opacity: 0.2;
+  animation:spin 20s linear infinite;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

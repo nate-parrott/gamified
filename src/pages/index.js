@@ -8,6 +8,7 @@ import Trophy from '../components/trophy.js';
 import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
+import EarnedCoinsModal from '../components/earnedCoinsModal.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -27,7 +28,13 @@ export default class IndexPage extends React.Component {
 		this.state = {playlist: null};
 	}
 	testPlaylist() {
-		let items = [0,1,2,3,4,5].map((i) => new ModalItem(() => <div className='testItem'>Page {i}</div>));
+		// let items = [0,1,2,3,4,5].map((i) => new ModalItem(() => <div className='testItem'>Page {i}</div>));
+		let itemToRead = new ModalItem(() => <div className='testItem'>READ ME!</div>);
+		let reward = new ModalItem(({full}) => {
+			if (!full) return null;
+			return <EarnedCoinsModal coins={5} title="🏆 Super Clicker" subtitle="For clicking 20 times! Keep it up!" onDismiss={() => this.setState({playlist: null})} />;
+		}, 'earnedCoinsModalItem');
+		let items = [itemToRead, reward];
 		this.setState({playlist: new ModalPlaylist(items)});
 	}
 	playWithRewards(rewardId, items) {
