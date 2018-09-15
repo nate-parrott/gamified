@@ -54,7 +54,7 @@ export default class IndexPage extends React.Component {
 					<img src={workflow} alt="Consume content, earn points, get exclusive experiences!" />
 				</div>
 				<div className='readable-width section'>
-					<h3>Learn about things I’ve made! <div className='tooltip'>1 point per click</div></h3>
+					<h3>Learn about things <span className='nowrap'>I’ve made! <div className='tooltip'>1 point per click</div></span></h3>
 					<div className='content-tiles'>
 						<Tile src={hab} alt="Design and branding for a beginner-friendly hackathon" onClick={ () => this.playWithRewards('hab', [ web(withPrefix('/hab/index.html')) ]) } />
 						<Tile src={flashlight} alt="A popular natural-language interface to Mac OS" onClick={ () => this.playWithRewards('flashlight', [ web(withPrefix('/flashlight/index.html')) ]) } />
@@ -78,7 +78,7 @@ export default class IndexPage extends React.Component {
 					</div>
 				</div>
 				<div className='readable-width section'>
-					<h3>Why not consume more content? <div className='tooltip'>1 point per click</div></h3>
+					<h3>Why not consume <span className='nowrap'>more content? <div className='tooltip'>1 point per click</div></span></h3>
 					<div className='content-tiles'>
 						<Tile src={table} alt="An augmented-reality table prototype" onClick={ () => this.playWithRewards('table', [ web('http://table.nateparrott.com/') ]) } />
 						<Tile src={subway} alt="An subway map that visualizes travel time" onClick={ () => this.playWithRewards('subway', [ web('http://subway.nateparrott.com/') ]) } />
@@ -111,7 +111,7 @@ export default class IndexPage extends React.Component {
 					</div>
 				</div>
 				<div className='readable-width section'>
-					<h3>There’s so much rewarding content!<div className='tooltip'>1 point per click</div></h3>
+					<h3>There’s so much <span className='nowrap'>rewarding content!<div className='tooltip'>1 point per click</div></span></h3>
 					<div className='content-tiles'>
 						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ]) } />
 						<Tile src={stacks} alt="An app for making your own social network" />
