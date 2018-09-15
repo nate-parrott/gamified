@@ -27,11 +27,45 @@ export default class EarnedCoinsModal extends React.Component {
 }
 
 const FallingCoins = ({count}) => {
+	let widthOfColumnFraction = 0.6;
+	let widthPercent = widthOfColumnFraction / count * 100;
+	
 	let coins = [];
 	for (let i=0; i<count; i++) {
-		coins.push(<div key={i} left={(i + 0.5) / count} />);
+		let centerXPercent = (i + 0.5) / count * 100;
+		coins.push(<FallingCoin key={i} widthPercent={widthPercent} centerXPercent={centerXPercent} />);
 	}
 	return (
 		<div className='FallingCoins'>{coins}</div>
 	)
+}
+
+const randAngle = () => Math.random() * Math.PI * 2;
+const randSign = () => Math.random() < 0.5 ? -1 : 1;
+
+class FallingCoin extends React.Component {
+	constructor(props) {
+		super(props);
+		this.startAngle = randAngle();
+		this.endAngle = this.startAngle + Math.PI * 2 * randSign();
+		this.state = {angle: this.startAngle, bottom: '100%'};
+	}
+	componentDidMount() {
+		let delaySeconds = Math.random() * 0.5 + 0.2;
+		setTimeout(() => {
+			this.setState({angle: this.endAngle, bottom: '-50%'});
+		}, delaySeconds * 1000);
+	}
+	render() {
+		let { widthPercent, centerXPercent } = this.props;
+		let {angle, bottom} = this.state;
+		let style = {
+			left: (centerXPercent) + '%',
+			width: widthPercent + '%',
+			marginLeft: -widthPercent / 2 + '%',
+			transform: 'rotate(' + angle + 'rad)',
+			bottom: bottom
+		};
+		return <img src={coin} style={style} />
+	}
 }

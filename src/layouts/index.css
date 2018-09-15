@@ -117,6 +117,16 @@ h3 {
 	border-bottom: 3px solid black;
 	padding-bottom: 1em;
 }
+.cashcash:before {
+	background-color: #00FF9F;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -2;
+	content: " ";
+}
 .cashcash > .bg {
 	z-index: -1;
 	position: absolute;
