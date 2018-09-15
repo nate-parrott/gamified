@@ -5,22 +5,45 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import Activity from '../components/activity'
 import './index.css'
+import ActivityStore, { LocalActivityStorage } from '../components/activityStore';
 
-const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: '' },
-        { name: 'keywords', content: '' },
-      ]}
-    />
-    <div className='content'>
-      {children()}
-			<Activity />
-    </div>
-  </div>
-)
+class Layout extends React.Component {
+	constructor(props) {
+		super(props);
+		this.activityStore = new ActivityStore(new LocalActivityStorage('activity'));
+		
+		setTimeout(() => {
+			this.activityStore.addMessage({
+				from: 'admin',
+				text: 'hello!'
+			});
+			this.activityStore.unlockAward({
+				id: 'myAward',
+				activityText: "you got an award",
+				name: "My award!",
+				coins: 11
+			})
+		}, 1000);
+	}
+	render() {
+		let { data, children } = this.props;
+		return (
+		  <div>
+		    <Helmet
+		      title={data.site.siteMetadata.title}
+		      meta={[
+		        { name: 'description', content: '' },
+		        { name: 'keywords', content: '' },
+		      ]}
+		    />
+		    <div className='content'>
+		      {children()}
+					<Activity activityStore={this.activityStore} />
+		    </div>
+		  </div>
+		)
+	}
+}
 
 Layout.propTypes = {
   children: PropTypes.func,
