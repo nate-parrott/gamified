@@ -90,10 +90,10 @@ h3 {
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 2vw;
 }
-@media screen and (max-width: 500px) {
-/*	.content-tiles {
+@media screen and (max-width: 400px) {
+	.content-tiles {
 		grid-template-columns: repeat(1, 1fr);
-	}*/
+	}
 }
 .tile {
 	background-size: 102%;
@@ -120,10 +120,10 @@ h3 {
 .cashcash > .bg {
 	z-index: -1;
 	position: absolute;
-	width: 200vw;
-	height: 200vw;
-	left: -100vw;
-	top: -100vw;
+	width: 200vh;
+	height: 200vh;
+	left: -100vh;
+	top: -100vh;
 	background-image: url(../images/cashcash.svg);
 	animation-duration: 2s;
 	animation-name: cash-slide;

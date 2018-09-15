@@ -1,19 +1,24 @@
 import Announcer from './announcer.js';
 import { uuid } from './utils.js';
 
+const windowGlobal = typeof window !== 'undefined' && window;
+
 export class LocalActivityStorage {
 	constructor(key) {
 		this.key = key;
 	}
 	read() {
-		if (window.localStorage[this.key]) {
-			return JSON.parse(window.localStorage[this.key]);
+		if (!windowGlobal) {
+			return {};
+		}
+		if (windowGlobal.localStorage[this.key]) {
+			return JSON.parse(windowGlobal.localStorage[this.key]);
 		} else {
 			return {};
 		}
 	}
 	write(data) {
-		window.localStorage[this.key] = JSON.stringify(data);
+		windowGlobal.localStorage[this.key] = JSON.stringify(data);
 	}
 }
 
