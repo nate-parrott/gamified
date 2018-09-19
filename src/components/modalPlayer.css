@@ -32,8 +32,8 @@
 .ModalItemView .back, .ModalItemView .forward {
 	width: 66px;
 	height: 66px;
-	top: 50%;
-	margin-top: -33px;
+	bottom: 50%;
+	margin-bottom: -33px;
 	background-size: 60%;
 	border: 3px solid black;
 	background-color: white;
@@ -51,6 +51,25 @@
 .ModalItemView .forward {
 	right: -33px;
 	background-image: url(../images/forward-arrow.svg);
+}
+
+@media screen and (max-width: 600px) {
+	.ModalItemView {
+		left: 1vw;
+		right: 1vw;
+		top: 1vw;
+		bottom: 1vw;
+	}
+	.ModalItemView .back, .ModalItemView .forward {
+		bottom: 2vw;
+		margin-bottom: 0;
+	}
+	.ModalItemView .back {
+		left: 2vw;
+	}
+	.ModalItemView .forward {
+		right: 2vw;
+	}
 }
 
 .ModalItemView.offset_1 {
