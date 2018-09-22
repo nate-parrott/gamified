@@ -8,9 +8,8 @@ import Trophy from '../components/trophy.js';
 import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
-import EarnedCoinsModal from '../components/earnedCoinsModal.js';
-import { pick1 } from '../components/utils.js';
 import { GetGlobalActivityStore } from '../components/activityStore.js';
+import { playlistWithAward } from '../components/awardUtils.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -30,48 +29,16 @@ export default class IndexPage extends React.Component {
 		this.activityStore = GetGlobalActivityStore();
 		this.state = {playlist: null};
 	}
-	testPlaylist() {
-		// let items = [0,1,2,3,4,5].map((i) => new ModalItem(() => <div className='testItem'>Page {i}</div>));
-		let itemToRead = new ModalItem(() => <div className='testItem'>READ ME!</div>);
-		let reward = new ModalItem(({full}) => {
-			if (!full) return null;
-			return <EarnedCoinsModal coins={5} title="🏆 Super Clicker" subtitle="For clicking 20 times! Keep it up!" onDismiss={() => this.setState({playlist: null})} />;
-		}, 'earnedCoinsModalItem');
-		let items = [itemToRead, reward];
-		this.setState({playlist: new ModalPlaylist(items)});
-	}
 	playWithRewards(awardId, items) {
-		let activityStore  = this.activityStore;
-		const coins = 5;
-		let rewardEmoji = pick1(['💅', '👌', '💋', '🌝', '💕', '✨', '🌈', '💰', '💸', '😻', '🤑']);
-		let rewardCongrats = pick1(['Nice going!', 'Wow!', 'Keep it up!', 'You got it!', 'As promised!', 'Exceptional!', 'Wild!']);
-		if (!activityStore.hasAward(awardId)) {
-			let awardItem = new ModalItem(({full}) => {
-				if (!full) return;
-				if (!activityStore.hasAward(awardId)) {
-					// unlock in the next run loop:
-					setTimeout(() => {
-						activityStore.unlockAward({
-							id: awardId,
-							coins: coins,
-							activityText: `🤑 You earned ${coins} coins for content consumption!`,
-							suppressDefaultNotification: true
-						})
-					}, 0);
-				}
-				let title = rewardEmoji + ' ' + rewardCongrats;
-				return <EarnedCoinsModal coins={coins} title="title" subtitle={`You’ve earned ${coins} for viewing!`} onDismiss={() => this.setState({playlist: null})} />;
-			}, 'earnedCoinsModalItem');
-			items = [...items, awardItem];
-		}
-		this.setState({ playlist: new ModalPlaylist(items) });
+		let onDismiss = () => this.setState({playlist: null});
+		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss) });
 	}
 	render() {
 		return (
 		  <div className='index-page'>
 				<ModalPlayer playlist={this.state.playlist} onDone={() => this.setState({playlist: null})} />
 			
-				<div className='intro' onClick={this.testPlaylist.bind(this)}>
+				<div className='intro'>
 					<img className='readable-width' src={intro} alt="Nate Parrott dot com: developer, designer and gamification enthusiast." />
 				</div>
 				<div className='readable-width boxed-content workflow section'>
