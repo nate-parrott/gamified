@@ -9,6 +9,8 @@ import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.j
 import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
 import EarnedCoinsModal from '../components/earnedCoinsModal.js';
+import { pick1 } from '../components/utils.js';
+import { GetGlobalActivityStore } from '../components/activityStore.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -25,6 +27,7 @@ import content from '../images/tiles/content.svg'
 export default class IndexPage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.activityStore = GetGlobalActivityStore();
 		this.state = {playlist: null};
 	}
 	testPlaylist() {
@@ -37,8 +40,30 @@ export default class IndexPage extends React.Component {
 		let items = [itemToRead, reward];
 		this.setState({playlist: new ModalPlaylist(items)});
 	}
-	playWithRewards(rewardId, items) {
-		// TODO: rewards
+	playWithRewards(awardId, items) {
+		let activityStore  = this.activityStore;
+		const coins = 5;
+		let rewardEmoji = pick1(['💅', '👌', '💋', '🌝', '💕', '✨', '🌈', '💰', '💸', '😻', '🤑']);
+		let rewardCongrats = pick1(['Nice going!', 'Wow!', 'Keep it up!', 'You got it!', 'As promised!', 'Exceptional!', 'Wild!']);
+		if (!activityStore.hasAward(awardId)) {
+			let awardItem = new ModalItem(({full}) => {
+				if (!full) return;
+				if (!activityStore.hasAward(awardId)) {
+					// unlock in the next run loop:
+					setTimeout(() => {
+						activityStore.unlockAward({
+							id: awardId,
+							coins: coins,
+							activityText: `🤑 You earned ${coins} coins for content consumption!`,
+							suppressDefaultNotification: true
+						})
+					}, 0);
+				}
+				let title = rewardEmoji + ' ' + rewardCongrats;
+				return <EarnedCoinsModal coins={coins} title="title" subtitle={`You’ve earned ${coins} for viewing!`} onDismiss={() => this.setState({playlist: null})} />;
+			}, 'earnedCoinsModalItem');
+			items = [...items, awardItem];
+		}
 		this.setState({ playlist: new ModalPlaylist(items) });
 	}
 	render() {

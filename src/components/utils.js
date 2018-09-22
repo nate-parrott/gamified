@@ -10,3 +10,8 @@ export function uuid() {
   }
   return uuid;
 }
+
+export function pick1(list) {
+	if (list.length === 0) return null;
+	return list[(Math.random() * list.length) | 0]
+}

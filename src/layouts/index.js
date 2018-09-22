@@ -5,13 +5,9 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import Activity from '../components/activity'
 import './index.css'
-import ActivityStore, { LocalActivityStorage } from '../components/activityStore';
+import { GetGlobalActivityStore } from '../components/activityStore';
 
 class Layout extends React.Component {
-	constructor(props) {
-		super(props);
-		this.activityStore = new ActivityStore(new LocalActivityStorage('activity'));
-	}
 	render() {
 		let { data, children } = this.props;
 		return (
@@ -25,7 +21,7 @@ class Layout extends React.Component {
 		    />
 		    <div className='content'>
 		      {children()}
-					<Activity activityStore={this.activityStore} />
+					<Activity activityStore={GetGlobalActivityStore()} />
 		    </div>
 		  </div>
 		)

@@ -3,6 +3,15 @@ import { uuid } from './utils.js';
 
 const windowGlobal = typeof window !== 'undefined' && window;
 
+export function GetGlobalActivityStore() {
+	let existing = windowGlobal ? windowGlobal.activityStore : null;
+	if (!existing) {
+		existing = new ActivityStore(new LocalActivityStorage('activity'));
+		if (windowGlobal) windowGlobal.activityStore = existing;
+	}
+	return existing;
+}
+
 export class LocalActivityStorage {
 	constructor(key) {
 		this.key = key;
@@ -35,7 +44,7 @@ Award schema:
 Message schema:
 {
 	text: "My message!",
-	from: admin/system/user, ('system' messages are monospace)
+	type: admin/system/user/divider, ('system' messages are monospace)
   coins: 1,
   // special fields:
 	specialType: freeCoin/?,
@@ -60,14 +69,16 @@ export default class ActivityStore {
 		}
 	}
 	sendOnboardingMessages() {
+		// insert in reverse order:
 		this.addMessage({
-			from: 'admin',
+			type: 'admin',
 			text: 'Here, everything’s a ~game~. Go explore, earn coins, and they’ll show up here...'
 		});
 		this.addMessage({
-			from: 'admin',
+			type: 'admin',
 			text: '👋 Hey! I’m Nate.'
 		});
+		this.addMessage({ type: 'divider' });
 		// this.activityStore.unlockAward({
 		// 	id: 'myAward',
 		// 	activityText: "you got an award",
@@ -96,7 +107,7 @@ export default class ActivityStore {
 		this.addMessage({
 			text: award.activityText,
 			coins: award.coins,
-			from: 'admin'
+			type: 'admin'
 		});
 		this.changeAnnouncer.announce(this);
 	}

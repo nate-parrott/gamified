@@ -31,6 +31,9 @@
 	overflow-y: auto;
 	opacity: 0.4;
 }
+.activity .chat > * {
+	margin: 0.7em;
+}
 .activity:hover {
 	transform: translate(0, 0);
 }
@@ -45,14 +48,13 @@
 	display: inline-block;
 }
 .message {
-	padding: 10px;
-	padding-bottom: 0;
+	
 }
 .message .bubble {
 	background-color: #5423E2;
 	color: rgba(255,255,255,0.9);
 }
-.message.from-admin, .message.from-system {
+.message.type-admin, .message.type-system {
 	margin-right: 20px;
 }
 .message .action {
@@ -64,11 +66,18 @@
 .message .action:hover {
 	background-color: #00F1D4;
 }
-.message.from-system .bubble {
+.message.type-system .bubble {
 	background-color: #3B364B;
 	color: rgba(255,255,255,0.8);
 	font-size: small;
 	font-family: monospace;
 	cursor: not-allowed;
 	white-space: pre-wrap;
+}
+.activity .divider {
+	height: 1px;
+	background-color: rgba(255,255,255,0.3);
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
 }

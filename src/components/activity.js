@@ -3,8 +3,11 @@ import './activity.css';
 import coin from '../images/coin.png';
 
 const ActivityMessage = ({ message, activityStore }) => {
+	if (message.type === 'divider') {
+		return <div className='divider' />;
+	}
 	return (
-		<div className={`message from-${message.from}`}>
+		<div className={`message type-${message.type}`}>
 			<div className='bubble'>
 				{message.text}
 			</div>
