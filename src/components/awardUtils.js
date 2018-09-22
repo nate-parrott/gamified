@@ -18,7 +18,7 @@ export function playlistWithAward(awardId, items, activityStore, onDismiss) {
 						coins: coins,
 						activityText: `🤑 You earned ${coins} coins for content consumption!`,
 						suppressDefaultNotification: true
-					})
+					});
 				}, 0);
 			}
 			let title = rewardEmoji + ' ' + rewardCongrats;

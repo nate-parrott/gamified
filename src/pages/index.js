@@ -10,6 +10,7 @@ import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
 import { GetGlobalActivityStore } from '../components/activityStore.js';
 import { playlistWithAward } from '../components/awardUtils.js';
+import {TradeEmailDataSection, TradeNameDataSection } from '../components/tradeDataSection.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -28,6 +29,17 @@ export default class IndexPage extends React.Component {
 		super(props);
 		this.activityStore = GetGlobalActivityStore();
 		this.state = {playlist: null};
+	}
+	componentDidMount() {
+		this.cancelActivityStoreListener = this.activityStore.changeAnnouncer.listen(() => {
+			this.forceUpdate();
+		});
+	}
+	componentWillUnmount() {
+		if (this.cancelActivityStoreListener) {
+			this.cancelActivityStoreListener();
+			this.cancelActivityStoreListener = null;
+		}
 	}
 	playWithRewards(awardId, items) {
 		let onDismiss = () => this.setState({playlist: null});
@@ -76,18 +88,7 @@ export default class IndexPage extends React.Component {
 						<Tile src={subway} alt="An subway map that visualizes travel time" onClick={ () => this.playWithRewards('subway', [ web('http://subway.nateparrott.com/') ]) } />
 					</div>
 				</div>
-				<div className='readable-width boxed-content section'>
-					<h3>Sharing is caring!</h3>
-					<div className='two-pane'>
-						<div className='hides-on-phone'>
-							<div className='free-points-graphic' alt="Free points for sharing your data!" />
-						</div>
-						<form className='trade-data'>
-							<input name="email" type="email" placeholder="Enter your email" />
-							<input type="submit" value="Earn 5 free points!" />
-						</form>
-					</div>
-				</div>
+				<TradeNameDataSection activityStore={this.activityStore} />						
 				<div className='trophies section'>
 					<div className='bg' />
 					<div className='readable-width'>
@@ -111,18 +112,7 @@ export default class IndexPage extends React.Component {
 						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ]) } />
 					</div>
 				</div>
-				<div className='readable-width boxed-content section'>
-					<h3>Sharing is caring!</h3>
-					<div className='two-pane'>
-						<div className='hides-on-phone'>
-							<div className='free-points-graphic' alt="Free points for sharing your data!" />
-						</div>
-						<form className='trade-data'>
-							<input name="name" type="text" placeholder="What’s your name?" />
-							<input type="submit" value="Earn 5 free points!" />
-						</form>
-					</div>
-				</div>
+				<TradeEmailDataSection activityStore={this.activityStore} />
 		  </div>
 		)
 	}
