@@ -55,6 +55,25 @@ export default class ActivityStore {
 			this.coins += message.coins || 0;
 		}
 		this.changeAnnouncer = new Announcer();
+		if (this.messages.length === 0) {
+			this.sendOnboardingMessages();
+		}
+	}
+	sendOnboardingMessages() {
+		this.addMessage({
+			from: 'admin',
+			text: 'Here, everything’s a ~game~. Go explore, earn coins, and they’ll show up here...'
+		});
+		this.addMessage({
+			from: 'admin',
+			text: '👋 Hey! I’m Nate.'
+		});
+		// this.activityStore.unlockAward({
+		// 	id: 'myAward',
+		// 	activityText: "you got an award",
+		// 	name: "My award!",
+		// 	coins: 11
+		// })
 	}
 	save() {
 		this.storage.write({
@@ -87,5 +106,11 @@ export default class ActivityStore {
 			id: uuid()
 		});
 		this.changeAnnouncer.announce(this);
+	}
+	mostRecentMessagesReversed() {
+		const count = Math.min(60, this.messages.length);
+		let messages = this.messages.slice(this.messages.length - count);
+		messages.reverse();
+		return messages;
 	}
 }

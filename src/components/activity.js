@@ -4,7 +4,11 @@ import coin from '../images/coin.png';
 
 const ActivityMessage = ({ message, activityStore }) => {
 	return (
-		<div className={`message from-${message.from}`}>{message.text}</div>
+		<div className={`message from-${message.from}`}>
+			<div className='bubble'>
+				{message.text}
+			</div>
+		</div>
 	);
 }
 
@@ -43,7 +47,7 @@ export default class Activity extends React.Component {
 					<img src={coin} /><label>{coins} coins</label>
 				</div>
 				<div className='chat'>
-					{activityStore.messages.map((message) => (
+					{activityStore.mostRecentMessagesReversed().map((message) => (
 						<ActivityMessage key={message.id} message={message} activityStore={activityStore} />
 					))}
 				</div>
