@@ -2,6 +2,8 @@ import React from 'react'
 import './activity.css';
 import coin from '../images/coin.png';
 
+const windowGlobal = typeof window !== 'undefined' && window;
+
 const ActivityMessage = ({ message, activityStore }) => {
 	if (message.type === 'divider') {
 		return <div className='divider' />;
@@ -19,17 +21,29 @@ export default class Activity extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { messages: [] };
+		this.coinImageRef = null;
+		// setTimeout(() => {
+		// 	this.playCoinAnimation(5);
+		// }, 500);
 	}
 	componentDidMount() {
 		let { activityStore } = this.props;
 		this.cancelChangeListener = activityStore.onChange(() => {
 			this.setState({ messages: activityStore.messages });
 		});
+		this.cancelNewAwardListener = activityStore.newAwardAnnouncer.listen((award) => {
+			if (award.suppressDefaultNotification) return;
+			this.playCoinAnimation(award.coins);
+		});
 	}
 	componentWillUnmount() {
 		if (this.cancelChangeListener) {
 			this.cancelChangeListener();
 			this.cancelChangeListener = null;
+		}
+		if (this.cancelNewAwardListener) {
+			this.cancelNewAwardListener();
+			this.cancelNewAwardListener = null;
 		}
 	}
 	render() {
@@ -47,7 +61,7 @@ export default class Activity extends React.Component {
 		return (
 			<div className='activity expanded'>
 				<div className='coin-count'>
-					<img src={coin} /><label>{coins} coins</label>
+					<img src={coin} ref={(el) => {this.coinImageRef = el}} /><label>{coins} coins</label>
 				</div>
 				<div className='chat'>
 					{activityStore.mostRecentMessagesReversed().map((message) => (
@@ -57,7 +71,43 @@ export default class Activity extends React.Component {
 			</div>
 		)
 	}
-	giveFreebie() {
+	playCoinAnimation(coins) {
+		const imageNode = this.coinImageRef;
+		if (!imageNode) return;
 		
+		let nCoins = Math.min(coins, 10);
+		let timeBetweenCoins = Math.min(nCoins * 200, 1000) / nCoins;
+		
+		for (let i=0; i<nCoins; i++) {
+			playSingleCoinFlightAnimation(imageNode, i * timeBetweenCoins);
+		}
 	}
 }
+
+const playSingleCoinFlightAnimation = (targetCoinsImageNode, delay) => {
+	if (!windowGlobal) return;
+	let body = windowGlobal.document.body;
+	let targetRect = targetCoinsImageNode.getBoundingClientRect();
+	
+	let container = document.createElement('div');
+	container.setAttribute("class", "coinAnimationContainer");
+	
+	let flyingCoin = document.createElement("img");
+	flyingCoin.src = targetCoinsImageNode.src;
+	container.appendChild(flyingCoin);
+	flyingCoin.style.left = targetRect.left + 'px';
+	flyingCoin.style.top = targetRect.top + 'px';
+	flyingCoin.style.width = targetRect.width + 'px';
+	flyingCoin.style.height = targetRect.height + 'px';
+	
+	body.appendChild(container);
+	setTimeout(() => {
+		container.setAttribute("class", "coinAnimationContainer started");
+	}, delay);
+	
+	const duration = 1000;
+	setTimeout(() => {
+		body.removeChild(container);
+	}, delay + duration);
+}
+

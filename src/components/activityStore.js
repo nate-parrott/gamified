@@ -64,6 +64,7 @@ export default class ActivityStore {
 			this.coins += message.coins || 0;
 		}
 		this.changeAnnouncer = new Announcer();
+		this.newAwardAnnouncer = new Announcer();
 		if (this.messages.length === 0) {
 			this.sendOnboardingMessages();
 		}
@@ -110,6 +111,7 @@ export default class ActivityStore {
 			type: 'admin'
 		});
 		this.changeAnnouncer.announce(this);
+		this.newAwardAnnouncer.announce(award);
 	}
 	addMessage(message) {
 		this.messages.push({

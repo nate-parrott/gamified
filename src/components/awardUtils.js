@@ -22,7 +22,7 @@ export function playlistWithAward(awardId, items, activityStore, onDismiss) {
 				}, 0);
 			}
 			let title = rewardEmoji + ' ' + rewardCongrats;
-			return <EarnedCoinsModal coins={coins} title="title" subtitle={`You’ve earned ${coins} for viewing!`} onDismiss={onDismiss} />;
+			return <EarnedCoinsModal coins={coins} title={title} subtitle={`You’ve earned ${coins} coins for viewing!`} onDismiss={onDismiss} />;
 		}, 'earnedCoinsModalItem');
 		items = [...items, awardItem];
 	}

@@ -22,7 +22,7 @@ let TradeDataSection = ({activityStore, header, placeholder, formFieldType, acti
 			id: awardId,
 			coins: coins,
 			activityText: activityTextGenerator(value),
-			suppressDefaultNotification: true
+			suppressDefaultNotification: false
 		})
 	}
 	
