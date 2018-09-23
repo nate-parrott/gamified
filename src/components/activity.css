@@ -89,15 +89,14 @@
 	right: 0;
 	bottom: 0;
 	pointer-events: none;
-	transform-origin: bottom right;
+	transform-origin: bottom left;
 }
 .coinAnimationContainer, .coinAnimationContainer > img {
 	transition: transform 0.6s ease-out;
 }
 
 .coinAnimationContainer:not(.started) {
-	transform-origin: bottom right;
-	transform: rotate(30deg);
+	transform: rotate(-90deg);
 }
 
 .coinAnimationContainer > img {
@@ -105,5 +104,5 @@
 }
 
 .coinAnimationContainer:not(.started) > img {
-	transform: translate(0, -150vh) scale(4, 4);
+	transform: translate(0, 0) scale(4, 4);
 }
