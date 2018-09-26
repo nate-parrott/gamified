@@ -195,6 +195,21 @@ h3 {
 .trade-data input[type='submit'] {
 	width: 50%;
 }
+.data-collected {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.data-collected h4 {
+	text-transform: uppercase;
+	opacity: 0.6;
+}
+.data-collected .data {
+	font-family: monospace;
+	background-color: #F7F4FF;
+	padding: 6px 10px;
+	font-size: large;
+}
 @media screen and (max-width: 700px) {
 	.hides-on-phone {
 		display: none;

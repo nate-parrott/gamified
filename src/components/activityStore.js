@@ -59,6 +59,7 @@ export default class ActivityStore {
 		let data = this.storage.read();
 		this.awards = data.awards || {};
 		this.messages = data.messages || [];
+		this.values = data.values || {};
 		this.coins = 0;
 		for (let message of Object.values(this.awards)) {
 			this.coins += message.coins || 0;
@@ -73,7 +74,7 @@ export default class ActivityStore {
 		// insert in reverse order:
 		this.addMessage({
 			type: 'admin',
-			text: 'Here, everything’s a ~game~. Go explore, earn coins, and they’ll show up here...'
+			text: 'On my site, everything’s a ~game~. Go explore, earn coins, and they’ll show up here...'
 		});
 		this.addMessage({
 			type: 'admin',
@@ -90,7 +91,8 @@ export default class ActivityStore {
 	save() {
 		this.storage.write({
 			awards: this.awards,
-			messages: this.messages
+			messages: this.messages,
+			values: this.values
 		});
 	}
 	onChange(callback) {
