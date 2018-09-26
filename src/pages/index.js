@@ -4,7 +4,7 @@ import HScroll from '../components/hscroll.js';
 import Unlockable from '../components/unlockable.js';
 import intro from "../images/intro.svg"
 import workflow from "../images/workflow.svg"
-import Trophy from '../components/trophy.js';
+import { Trophies } from '../components/trophy.js';
 import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
@@ -93,14 +93,7 @@ export default class IndexPage extends React.Component {
 					<div className='bg' />
 					<div className='readable-width'>
 						<h3>Why not earn some trophies??</h3>
-						<HScroll>
-							<Trophy emoji="🌈" name="Reading Rainbow" desc="Read 5 pieces of content!" value={10} />
-							<Trophy emoji="🕹" name="Clicker Clique" desc="Click 20 times anywhere!" value={5} unlocked={true} />
-							<Trophy emoji="🤞" name="Big Click Energy" desc="Click 100 times anywhere!" value={5} />
-							<Trophy emoji="👀" name="Eyewitness" desc="Follow me on Instagram!" value={5} />
-							<Trophy emoji="👻" name="Toasty Ghost" desc="Add me on the Snapchat!" value={7} />
-							<Trophy emoji="🐮" name="Cash Cow" desc="Send me $3 on Square Cash" value={7} action={() => alert('test')} />
-						</HScroll>
+						<Trophies activityStore={activityStore} playWithRewards={this.playWithRewards.bind(this)} />
 					</div>
 				</div>
 				<div className='readable-width section'>

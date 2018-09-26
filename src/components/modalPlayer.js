@@ -4,7 +4,7 @@ import { uuid } from './utils';
 
 export class ModalItem {
 	constructor(render, itemClass) {
-		// render: ({full: bool}) -> content
+		// render: ({ full: bool, onNext: () - () }) -> content
 		this.identifier = uuid();
 		this.render = render;
 		this.itemClass = itemClass;
@@ -20,7 +20,7 @@ export class ModalPlaylist {
 
 const ModalItemView = ({ item, onBack, onForward, onDismiss, offset }) => {
 	let className = `ModalItemView offset_${offset} ${item.itemClass || ''}`;
-	let content = item.render({ full: (offset === 0) });
+	let content = item.render({ full: (offset === 0), onForward });
 	return (
 		<div className={className}>
 			<div className='content'>{ content }</div>

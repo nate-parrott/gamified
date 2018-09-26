@@ -3,7 +3,7 @@ import React from 'react'
 const coins = 7;
 
 export let TradeEmailDataSection = ({activityStore}) => {
-	let activityTextGenerator = (value) => `${value}? Really? Whatever. Here’s ${coins} coins. 🙃`;
+	let activityTextGenerator = (value) => `Thanks, ${value}! Here’s ${coins} coins. 🙃`;
 	return <TradeDataSection formFieldType="email" awardId="tradeEmailData" placeholder="What’s your email?" activityTextGenerator={activityTextGenerator} activityStore={activityStore} valueKey="email" />
 }
 
