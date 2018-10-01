@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Give your kids futuristic names with a neural network!</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Give your kids futuristic names with a neural network!</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Use deep neural nets to add, subtract, mix and generate baby names.
+</section>
+<section data-field="body" class="e-content">
+<section name="30ff" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure name="55c5" id="55c5" class="graf graf--figure graf--leading"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 393px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 56.10000000000001%;"></div><img class="graf-image" data-image-id="1*qZfrCLhhz3cep4i_pMGNJw.png" data-width="1400" data-height="786" src="https://cdn-images-1.medium.com/max/800/1*qZfrCLhhz3cep4i_pMGNJw.png"></div></figure><p name="551e" id="551e" class="graf graf--p graf-after--figure">We live in the future. Computers drive cars, <a href="https://techcrunch.com/2016/06/15/fixed-the-app-that-helps-you-fight-tickets-gets-acquired-by-a-law-firm/" data-href="https://techcrunch.com/2016/06/15/fixed-the-app-that-helps-you-fight-tickets-gets-acquired-by-a-law-firm/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">fight parking tickets</a> and <a href="https://www.theguardian.com/technology/2016/sep/29/ipal-robot-childcare-robobusiness-san-jose" data-href="https://www.theguardian.com/technology/2016/sep/29/ipal-robot-childcare-robobusiness-san-jose" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">raise children</a>. Why not let machines name our children, too? What if a computer program could find the ideal baby name. Maybe it’s a perfect combination of both parents’ names—or maybe it’s a name that’s completely unique.</p><p name="eb25" id="eb25" class="graf graf--p graf-after--p">I trained a <a href="https://github.com/nate-parrott/juypter-notebooks/blob/master/names-variational-autoencoder.ipynb" data-href="https://github.com/nate-parrott/juypter-notebooks/blob/master/names-variational-autoencoder.ipynb" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">neural network</em></a><em class="markup--em markup--p-em"> </em>on a list of 7500 popular American baby names, forcing it to turn each name into a mathematical representation called an <em class="markup--em markup--p-em">embedding.</em> Once I had a model that could translate between names and their embeddings, I could generate new names, blend existing names together, do arithmetic on names, and more.</p><h4 name="02e3" id="02e3" class="graf graf--h4 graf-after--p">Embeddings</h4><p name="fc02" id="fc02" class="graf graf--p graf-after--h4">Embeddings are an important machine learning technique. Facial-recognition algorithms are trained to convert images of faces into <em class="markup--em markup--p-em">face embeddings—</em>sequences of say, 16 numbers, which can be compared to find similar faces. <a href="https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/" data-href="https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Word-embedding networks</a> turn words into vectors of numbers whose values map to their semantic meaning in interesting ways.</p><p name="2b0d" id="2b0d" class="graf graf--p graf-after--p">I trained an algorithm to generate <strong class="markup--strong markup--p-strong">name embeddings</strong> for the 7500 common baby names using a neural network called an <strong class="markup--strong markup--p-strong">autoencoder</strong>—a neural network trained to reconstruct its input after the data has been squeezed through a bottleneck (called a <em class="markup--em markup--p-em">latent vector</em>) that allows a limited amount of data through. The bottleneck forces the network to learn only the most important features of a name, compressing it by stripping superfluous information.</p><figure name="1b4a" id="1b4a" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 1447px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 206.70000000000002%;"></div><img class="graf-image" data-image-id="1*K8jzSTVjyw-njfiDWd_bZA.png" data-width="1400" data-height="2894" src="https://cdn-images-1.medium.com/max/800/1*K8jzSTVjyw-njfiDWd_bZA.png"></div></figure><p name="26e7" id="26e7" class="graf graf--p graf-after--figure">My network took 10-character names as input (shorter names were padded with a special &lt;NULL&gt; character), ran an LSTM over them, and generated a vector of 64 floating-point numbers that roughly fit a gaussian distribution. It took this embedding vector and attempted to reconstruct the input name’s characters.</p><figure name="2219" id="2219" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 263px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 50%;"></div><img class="graf-image" data-image-id="1*njFgU5hYgjix9qAgg80LOg.gif" data-width="700" data-height="350" src="https://cdn-images-1.medium.com/max/600/1*njFgU5hYgjix9qAgg80LOg.gif"></div><figcaption class="imageCaption">The model seems to learn how to reconstruct the name’s length, first—then, it gradually gets better at reconstructing the specific letters.</figcaption></figure><p name="d2b2" id="d2b2" class="graf graf--p graf-after--figure">The model took around a 30 minutes running on a GPU to train to a reasonable level of accuracy — as it trains, you can see the model slowly getting better at modeling and reconstructing names:</p><h4 name="76fe" id="76fe" class="graf graf--h4 graf-after--p">Playing with embeddings: doing math</h4><p name="0ba9" id="0ba9" class="graf graf--p graf-after--h4">Once we’ve converted words into vectors, we can add, subtract and multiply them. I’ve noticed a few interesting properties:</p><p name="707a" id="707a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">When names differ by a simple feature (like an extra “a”, you can subtract out that feature and add it onto other names:</strong></p><figure name="7f08" id="7f08" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 125px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 17.9%;"></div><img class="graf-image" data-image-id="1*5FmFPb3I0R7Sh01B1_cTzA.png" data-width="1400" data-height="250" src="https://cdn-images-1.medium.com/max/800/1*5FmFPb3I0R7Sh01B1_cTzA.png"></div></figure><p name="d555" id="d555" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">It doesn’t always work, though:</strong></p><figure name="61d1" id="61d1" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 33px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 4.6%;"></div><img class="graf-image" data-image-id="1*M7LTMIXz4Hc9JTDiRiqcig.png" data-width="1400" data-height="65" src="https://cdn-images-1.medium.com/max/800/1*M7LTMIXz4Hc9JTDiRiqcig.png"></div></figure><p name="47ab" id="47ab" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">You can “multiply” names by constants, which has some strange effects:</strong></p><figure name="458d" id="458d" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 147px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 21%;"></div><img class="graf-image" data-image-id="1*ya8tYJT0EidfMcPeCTpdQg.png" data-width="1400" data-height="294" src="https://cdn-images-1.medium.com/max/800/1*ya8tYJT0EidfMcPeCTpdQg.png"></div></figure><h4 name="5e0d" id="5e0d" class="graf graf--h4 graf-after--figure">Blending names— for couples who can’t pick just one!</h4><p name="ba5d" id="ba5d" class="graf graf--p graf-after--h4">If you can do simple arithmetic on names, you can also linearly blend them, taking a weighted sum of two name embeddings and generating intermediate names from those</p><figure name="ccc2" id="ccc2" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 456px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 65.10000000000001%;"></div><img class="graf-image" data-image-id="1*S7_54bbwXJmmNqrYThPDEg.png" data-width="1400" data-height="912" src="https://cdn-images-1.medium.com/max/800/1*S7_54bbwXJmmNqrYThPDEg.png"></div></figure><h4 name="9dfc" id="9dfc" class="graf graf--h4 graf-after--figure">Generating random names</h4><p name="697d" id="697d" class="graf graf--p graf-after--h4">I built the embedding network as a <a href="http://kvfrans.com/variational-autoencoders-explained/" data-href="http://kvfrans.com/variational-autoencoders-explained/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">variational autoencoder</a>—a network that encourages the embeddings to have a normal distribution, rather than whatever crazy unpredictable distribution just happens to work best. This means it should be possible to randomly sample from a gaussian distribution to generate random embeddings that should yield plausible names:</p><figure name="052e" id="052e" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 393px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 56.10000000000001%;"></div><img class="graf-image" data-image-id="1*uQgnnLwLYUft0ARFkVSatg.png" data-width="1400" data-height="786" src="https://cdn-images-1.medium.com/max/800/1*uQgnnLwLYUft0ARFkVSatg.png"></div></figure><p name="4ea1" id="4ea1" class="graf graf--p graf-after--figure">Some of them definitely don’t make much sense (“P” or “Hhrsrrrrr”) but I kind of like a couple (“Pruliaa?” “Halden?” “Aradey?”)</p><p name="f346" id="f346" class="graf graf--p graf-after--p"><em class="markup--em markup--p-em">If this post gets 1,000 stars, I will name my first-born child using this code. Please like and share!</em></p><p name="2d7c" id="2d7c" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">💻 Check out the </strong><a href="https://github.com/nate-parrott/juypter-notebooks/blob/master/names-variational-autoencoder.ipynb" data-href="https://github.com/nate-parrott/juypter-notebooks/blob/master/names-variational-autoencoder.ipynb" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">code</strong></a><strong class="markup--strong markup--p-strong">!</strong></p><p name="ba39" id="ba39" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">🌟 I’ve been writing about my other adventures in deep learning </strong><a href="http://onemoredeeper.tumblr.com" data-href="http://onemoredeeper.tumblr.com" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">here</strong></a><strong class="markup--strong markup--p-strong">~</strong></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@nateparrott" class="p-author h-card">Nate Parrott</a> on <a href="https://medium.com/p/9078bed0894d"><time class="dt-published" datetime="2017-01-07T15:06:39.986Z">January 7, 2017</time></a>.</p><p><a href="https://medium.com/@nateparrott/give-your-kids-futuristic-names-with-a-neural-network-9078bed0894d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 1, 2018.</p></footer></article></body></html>
