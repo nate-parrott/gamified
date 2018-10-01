@@ -1,5 +1,6 @@
 import Announcer from './announcer.js';
 import { uuid } from './utils.js';
+import TrophyLogicTracker from './trophyLogic.js';
 
 const windowGlobal = typeof window !== 'undefined' && window;
 
@@ -38,7 +39,8 @@ Award schema:
 	name: "My Award!",
 	coins: 5,
 	activityText: "You unlocked a cool award!",
-	suppressDefaultNotification: false
+	suppressDefaultNotification: false,
+	category: 'content'
 }
 
 Message schema:
@@ -69,6 +71,7 @@ export default class ActivityStore {
 		if (this.messages.length === 0) {
 			this.sendOnboardingMessages();
 		}
+		this.trophyLogicTracker = new TrophyLogicTracker(this);
 	}
 	sendOnboardingMessages() {
 		// insert in reverse order:

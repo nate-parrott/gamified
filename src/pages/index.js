@@ -41,9 +41,9 @@ export default class IndexPage extends React.Component {
 			this.cancelActivityStoreListener = null;
 		}
 	}
-	playWithRewards(awardId, items, points) {
+	playWithRewards(awardId, items, options) {
 		let onDismiss = () => this.setState({playlist: null});
-		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, points) });
+		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, options) });
 	}
 	render() {
 		return (
@@ -60,10 +60,10 @@ export default class IndexPage extends React.Component {
 				<div className='readable-width section'>
 					<h3>Learn about <span className='nowrap'>things I’ve made! <div className='tooltip'>1 point per click</div></span></h3>
 					<div className='content-tiles'>
-						<Tile src={hab} alt="Design and branding for a beginner-friendly hackathon" onClick={ () => this.playWithRewards('hab', [ web(withPrefix('/hab/index.html')) ]) } />
-						<Tile src={flashlight} alt="A popular natural-language interface to Mac OS" onClick={ () => this.playWithRewards('flashlight', [ web(withPrefix('/flashlight/index.html')) ]) } />
-						<Tile src={instagrade} alt="An app that grades paper quizzes instantly" onClick={ () => this.playWithRewards('instagrade', [ web(withPrefix('/instagrade/index.html')) ]) } />	
-						<Tile src={zest} alt="A spice rack powered by computer vision" onClick={ () => this.playWithRewards('zest', [ web('http://zest.nateparrott.com/') ]) } />
+						<Tile src={hab} alt="Design and branding for a beginner-friendly hackathon" onClick={ () => this.playWithRewards('hab', [ web(withPrefix('/hab/index.html')) ], {category: 'content'}) } />
+						<Tile src={flashlight} alt="A popular natural-language interface to Mac OS" onClick={ () => this.playWithRewards('flashlight', [ web(withPrefix('/flashlight/index.html')) ], {category: 'content'}) } />
+						<Tile src={instagrade} alt="An app that grades paper quizzes instantly" onClick={ () => this.playWithRewards('instagrade', [ web(withPrefix('/instagrade/index.html')) ], {category: 'content'}) } />	
+						<Tile src={zest} alt="A spice rack powered by computer vision" onClick={ () => this.playWithRewards('zest', [ web('http://zest.nateparrott.com/') ], {category: 'content'}) } />
 					</div>
 				</div>
 				<div className='cashcash section'>
@@ -99,10 +99,10 @@ export default class IndexPage extends React.Component {
 				<div className='readable-width section'>
 					<h3>There’s so <span className='nowrap'>much rewarding content!<div className='tooltip'>1 point per click</div></span></h3>
 					<div className='content-tiles'>
-						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ]) } />
-						<Tile src={stacks} alt="An app for making your own social network" onClick={ () => this.playWithRewards('stacks', [ web(withPrefix('/stacks/index.html')) ]) } />
-						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ comingSoonPage() ]) } />
-						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ]) } />
+						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ], {category: 'content'}) } />
+						<Tile src={stacks} alt="An app for making your own social network" onClick={ () => this.playWithRewards('stacks', [ web(withPrefix('/stacks/index.html')) ], {category: 'content'}) } />
+						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ comingSoonPage() ], {category: 'content'}) } />
+						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ], {category: 'content'}) } />
 					</div>
 				</div>
 				<TradeEmailDataSection activityStore={this.activityStore} />

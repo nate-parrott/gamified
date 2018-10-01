@@ -4,8 +4,10 @@ import {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import EarnedCoinsModal from '../components/earnedCoinsModal.js';
 import { BasicPageItem } from '../components/trophy.js';
 
-export function playlistWithAward(awardId, items, activityStore, onDismiss, coins) {
+export function playlistWithAward(awardId, items, activityStore, onDismiss, options) {
+	let {coins, category} = (options || {});
 	coins = coins || 5;
+	
 	let rewardEmoji = pick1(['💅', '👌', '💋', '🌝', '💕', '✨', '🌈', '💰', '💸', '😻', '🤑']);
 	let rewardCongrats = pick1(['Nice going!', 'Wow!', 'Keep it up!', 'You got it!', 'As promised!', 'Exceptional!', 'Wild!']);
 	if (!activityStore.hasAward(awardId)) {
@@ -18,7 +20,8 @@ export function playlistWithAward(awardId, items, activityStore, onDismiss, coin
 						id: awardId,
 						coins: coins,
 						activityText: `🤑 You earned ${coins} coins for content consumption!`,
-						suppressDefaultNotification: true
+						suppressDefaultNotification: true,
+						category
 					});
 				}, 0);
 			}
