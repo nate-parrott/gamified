@@ -88,9 +88,9 @@ export let Trophies = ({ activityStore, playWithRewards }) => {
 	
 	return (
 		<HScroll>
-			<Trophy emoji="🌈" name="Reading Rainbow" desc="Read 5 pieces of content!" value={10} />
-			<Trophy emoji="🕹" name="Clicker Clique" desc="Click 20 times anywhere!" value={5} unlocked={true} />
-			<Trophy emoji="🤞" name="Big Click Energy" desc="Click 100 times anywhere!" value={5} />
+			<Trophy emoji="🌈" name="Reading Rainbow" desc="Read 5 pieces of content!" value={10} unlocked={activityStore.hasAward('reading-rainbow')} />
+			<Trophy emoji="🕹" name="Clicker Clique" desc="Click 20 times anywhere!" value={5} unlocked={activityStore.hasAward('clicker-clique')} />
+			<Trophy emoji="🤞" name="Big Click Energy" desc="Click 100 times anywhere!" value={5} unlocked={activityStore.hasAward('big-click-energy')} />
 			<Trophy emoji="👀" name="Eyewitness" desc="Follow me on Instagram!" value={5} unlocked={activityStore.hasAward('instagram')} action={() => playWithRewards('instagram', [policePage(), instagramPage()], {coins: 5})} />
 			<Trophy emoji="👻" name="Toasty Ghost" desc="Add me on the Snapchat!" value={7} unlocked={activityStore.hasAward('snapchat')} action={() => playWithRewards('snapchat', [policePage(), snapchatPage()], {coins: 5}) } />
 			<Trophy emoji="🐮" name="Cash Cow" desc="Send me $3 on Square Cash" value={10} unlocked={activityStore.hasAward('cashApp')} action={() => playWithRewards('cashApp', [policePage(), cashAppPage()], {coins: 7}) } />

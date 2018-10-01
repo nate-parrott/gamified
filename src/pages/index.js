@@ -93,7 +93,7 @@ export default class IndexPage extends React.Component {
 					<div className='bg' />
 					<div className='readable-width'>
 						<h3>Why not earn some trophies??</h3>
-						<Trophies activityStore={activityStore} playWithRewards={this.playWithRewards.bind(this)} />
+						<Trophies activityStore={this.activityStore} playWithRewards={this.playWithRewards.bind(this)} />
 					</div>
 				</div>
 				<div className='readable-width section'>
