@@ -9,7 +9,7 @@ import ModalPlayer, {ModalItem, ModalPlaylist} from '../components/modalPlayer.j
 import { web } from '../components/playlistHelpers.js';
 import { withPrefix } from 'gatsby-link'
 import { GetGlobalActivityStore } from '../components/activityStore.js';
-import { playlistWithAward } from '../components/awardUtils.js';
+import { playlistWithAward, comingSoonPage } from '../components/awardUtils.js';
 import {TradeEmailDataSection, TradeNameDataSection } from '../components/tradeDataSection.js';
 
 // tiles:
@@ -101,7 +101,7 @@ export default class IndexPage extends React.Component {
 					<div className='content-tiles'>
 						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ]) } />
 						<Tile src={stacks} alt="An app for making your own social network" onClick={ () => this.playWithRewards('stacks', [ web(withPrefix('/stacks/index.html')) ]) } />
-						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ web('https://www.rhymeswithreason.co/') ]) } />
+						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ comingSoonPage() ]) } />
 						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ]) } />
 					</div>
 				</div>

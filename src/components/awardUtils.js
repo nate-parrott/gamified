@@ -2,6 +2,7 @@ import { pick1 } from '../components/utils.js';
 import React from 'react'
 import {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import EarnedCoinsModal from '../components/earnedCoinsModal.js';
+import { BasicPageItem } from '../components/trophy.js';
 
 export function playlistWithAward(awardId, items, activityStore, onDismiss, coins) {
 	coins = coins || 5;
@@ -27,4 +28,12 @@ export function playlistWithAward(awardId, items, activityStore, onDismiss, coin
 		items = [...items, awardItem];
 	}
 	return new ModalPlaylist(items);
+}
+
+export function comingSoonPage() {
+	return BasicPageItem({
+		title: "Coming soon!",
+		subtitle: "I guess you can have the coins anyway, though.",
+		nextButtonTitle: "Whatever"
+	})
 }

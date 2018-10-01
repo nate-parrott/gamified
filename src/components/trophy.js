@@ -29,7 +29,7 @@ const UnlockButton = ({ hasAction, unlocked }) => {
 	return <div className='not-unlocked'>Not unlocked</div>
 }
 
-let BasicPageItem = ({ bigText, bigTextUrl, bigImage, title, subtitle, nextButtonTitle, pageClass }) => {
+export let BasicPageItem = ({ bigText, bigTextUrl, bigImage, title, subtitle, nextButtonTitle, pageClass }) => {
 	return new ModalItem(({ full, onForward }) => {
 		let content = null;
 		if (full) {
