@@ -128,3 +128,31 @@
 	cursor: default;
 	margin-top: 1em;
 }
+
+.BasicPageItem .bigText, .BasicPageItem .bigImage {
+	font-size: 6vw;
+	display: inline-block;
+	margin-bottom: 0.3em;
+}
+
+.BasicPageItem .bigText {
+	color: #5423E2;
+	background-color: #E0E6F6;
+	padding: 0.2em 0.5em;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.BasicPageItem .bigImage {
+	height: 3em;
+}
+
+.BasicPageItem.cashApp .bigText {
+	background-color: #00CB30;
+	color: white;
+}
+
+.BasicPageItem.instagram .bigText {
+	background: linear-gradient(#FF3628, #FFDB4C);
+	color: white;
+}

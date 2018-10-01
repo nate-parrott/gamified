@@ -41,9 +41,9 @@ export default class IndexPage extends React.Component {
 			this.cancelActivityStoreListener = null;
 		}
 	}
-	playWithRewards(awardId, items) {
+	playWithRewards(awardId, items, points) {
 		let onDismiss = () => this.setState({playlist: null});
-		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss) });
+		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, points) });
 	}
 	render() {
 		return (

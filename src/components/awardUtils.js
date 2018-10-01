@@ -3,8 +3,8 @@ import React from 'react'
 import {ModalItem, ModalPlaylist} from '../components/modalPlayer.js';
 import EarnedCoinsModal from '../components/earnedCoinsModal.js';
 
-export function playlistWithAward(awardId, items, activityStore, onDismiss) {
-	const coins = 5;
+export function playlistWithAward(awardId, items, activityStore, onDismiss, coins) {
+	coins = coins || 5;
 	let rewardEmoji = pick1(['💅', '👌', '💋', '🌝', '💕', '✨', '🌈', '💰', '💸', '😻', '🤑']);
 	let rewardCongrats = pick1(['Nice going!', 'Wow!', 'Keep it up!', 'You got it!', 'As promised!', 'Exceptional!', 'Wild!']);
 	if (!activityStore.hasAward(awardId)) {
