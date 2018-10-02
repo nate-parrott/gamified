@@ -62,6 +62,7 @@ export default class ActivityStore {
 		this.awards = data.awards || {};
 		this.messages = data.messages || [];
 		this.values = data.values || {};
+		this.unlockedIncentives = data.unlockedIncentives || {};
 		this.coins = 0;
 		for (let message of Object.values(this.awards)) {
 			this.coins += message.coins || 0;
@@ -95,7 +96,8 @@ export default class ActivityStore {
 		this.storage.write({
 			awards: this.awards,
 			messages: this.messages,
-			values: this.values
+			values: this.values,
+			unlockedIncentives: this.unlockedIncentives
 		});
 	}
 	onChange(callback) {
@@ -117,6 +119,17 @@ export default class ActivityStore {
 		});
 		this.changeAnnouncer.announce(this);
 		this.newAwardAnnouncer.announce(award);
+	}
+	hasIncentive(incentiveId) {
+		return !!this.unlockedIncentives[incentiveId];
+	}
+	unlockIncentive(incentive) {
+		if (this.hasIncentive(incentive.id)) return;
+		this.unlockIncentive[incentive.id] = 1;
+		if (incentive.activityText) {
+			this.addMessage({ type: 'admin', text: incentive.activityText, coins: -incentive.cost });
+		}
+		this.changeAnnouncer.announce(this);
 	}
 	addMessage(message) {
 		this.messages.push({

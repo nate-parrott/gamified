@@ -1,4 +1,4 @@
-.unlockable {
+.IncentiveView {
 	border: 3px solid black;
 	background-color: white;
 	padding: 10px;
@@ -8,14 +8,14 @@
 	text-align: center;
 	cursor: pointer;
 }
-.unlockable .lock {
+.IncentiveView .lock {
 	width: 52px;
 	height: 61px;
 	background-image: url(../images/locked.svg);
 	position: relative;
 	margin: auto;
 }
-.unlockable label {
+.IncentiveView label {
 	position: absolute;
 	text-align: center;
 	bottom: 9px;
@@ -23,7 +23,7 @@
 	width: 100%;
 	font-weight: 500;
 }
-.unlockable h6 {
+.IncentiveView h6 {
 	margin: 0.5em 0;
 	font-size: 1em;
 	font-weight: 500;

@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import HScroll from '../components/hscroll.js';
-import Unlockable from '../components/unlockable.js';
 import intro from "../images/intro.svg"
 import workflow from "../images/workflow.svg"
 import { Trophies } from '../components/trophy.js';
@@ -11,6 +10,7 @@ import { withPrefix } from 'gatsby-link'
 import { GetGlobalActivityStore } from '../components/activityStore.js';
 import { playlistWithAward, comingSoonPage } from '../components/awardUtils.js';
 import {TradeEmailDataSection, TradeNameDataSection } from '../components/tradeDataSection.js';
+import IncentivesSection from '../components/incentives.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -45,6 +45,10 @@ export default class IndexPage extends React.Component {
 		let onDismiss = () => this.setState({playlist: null});
 		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, options) });
 	}
+	playItems(items) {
+		console.log(items);
+		// TODO
+	}
 	render() {
 		return (
 		  <div className='index-page'>
@@ -70,15 +74,7 @@ export default class IndexPage extends React.Component {
 					<div className='bg' />
 					<div className='readable-width'>
 						<h3>Exclusive unlockable content!</h3>
-						<HScroll>
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-							<Unlockable name="Download my resume" price={5} />
-						</HScroll>
+						<IncentivesSection activityStore={this.activityStore} playItems={this.playItems.bind(this)} />
 					</div>
 				</div>
 				<div className='readable-width section'>
