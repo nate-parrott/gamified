@@ -8,6 +8,7 @@ export class ModalItem {
 		this.identifier = uuid();
 		this.render = render;
 		this.itemClass = itemClass;
+		this.borderless = false;
 	}
 }
 
@@ -19,13 +20,16 @@ export class ModalPlaylist {
 }
 
 const ModalItemView = ({ item, onBack, onForward, onDismiss, offset }) => {
+	let borderless = item.borderless;
 	let className = `ModalItemView offset_${offset} ${item.itemClass || ''}`;
+	if (borderless) className += ' borderless';
+	
 	let content = item.render({ full: (offset === 0), onForward });
 	return (
 		<div className={className}>
 			<div className='content'>{ content }</div>
-			{onBack ? <div className='control back' onClick={onBack} key='back' /> : null}
-			{onForward ? <div className='control forward' onClick={onForward} key='forward' /> : null}		
+			{onBack && !borderless ? <div className='control back' onClick={onBack} key='back' /> : null}
+			{onForward && !borderless ? <div className='control forward' onClick={onForward} key='forward' /> : null}		
 		</div>
 	)
 }

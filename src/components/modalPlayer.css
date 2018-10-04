@@ -19,9 +19,10 @@
 	right: 4%;
 	top: 4%;
 	bottom: 4%;
+}
+
+.ModalItemView:not(.borderless) {
 	background-color: white;
-/*	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-*/
 	border: 3px solid black;
 }
 

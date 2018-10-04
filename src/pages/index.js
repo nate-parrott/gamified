@@ -11,6 +11,7 @@ import { GetGlobalActivityStore } from '../components/activityStore.js';
 import { playlistWithAward, comingSoonPage } from '../components/awardUtils.js';
 import {TradeEmailDataSection, TradeNameDataSection } from '../components/tradeDataSection.js';
 import IncentivesSection from '../components/incentives.js';
+import { coinUnlockModalItem } from '../components/coinUnlockModalItem.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -54,7 +55,7 @@ export default class IndexPage extends React.Component {
 		  <div className='index-page'>
 				<ModalPlayer playlist={this.state.playlist} onDone={() => this.setState({playlist: null})} />
 			
-				<div className='intro'>
+				<div className='intro' onClick={() => this.setState({playlist: new ModalPlaylist([coinUnlockModalItem()])})}>
 					<img className='readable-width' src={intro} alt="Nate Parrott dot com: developer, designer and gamification enthusiast." />
 				</div>
 				<div className='readable-width boxed-content workflow section'>
