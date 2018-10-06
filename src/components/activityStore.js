@@ -63,16 +63,19 @@ export default class ActivityStore {
 		this.messages = data.messages || [];
 		this.values = data.values || {};
 		this.unlockedIncentives = data.unlockedIncentives || {};
-		this.coins = 0;
-		for (let message of Object.values(this.awards)) {
-			this.coins += message.coins || 0;
-		}
 		this.changeAnnouncer = new Announcer();
 		this.newAwardAnnouncer = new Announcer();
 		if (this.messages.length === 0) {
 			this.sendOnboardingMessages();
 		}
 		this.trophyLogicTracker = new TrophyLogicTracker(this);
+	}
+	coinBalance() {
+		let coins = 0;
+		for (let message of this.messages) {
+			coins += message.coins || 0;
+		}
+		return coins;
 	}
 	sendOnboardingMessages() {
 		// insert in reverse order:

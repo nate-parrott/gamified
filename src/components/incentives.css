@@ -15,6 +15,9 @@
 	position: relative;
 	margin: auto;
 }
+.IncentiveView.unlocked .lock {
+	background-image: url(../images/unlocked.svg);
+}
 .IncentiveView label {
 	position: absolute;
 	text-align: center;

@@ -1,5 +1,5 @@
 .earnedCoinsModalItem {
-	background-color: #5423E2;
+	background-color: #5423E2 !important;
 }
 .earnedCoinsModalItem > .content {
 	height: 100%;

@@ -46,9 +46,8 @@ export default class IndexPage extends React.Component {
 		let onDismiss = () => this.setState({playlist: null});
 		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, options) });
 	}
-	playItems(items) {
-		console.log(items);
-		// TODO
+	playPlaylist(playlist) {
+		this.setState({ playlist });
 	}
 	render() {
 		return (
@@ -75,7 +74,7 @@ export default class IndexPage extends React.Component {
 					<div className='bg' />
 					<div className='readable-width'>
 						<h3>Exclusive unlockable content!</h3>
-						<IncentivesSection activityStore={this.activityStore} playItems={this.playItems.bind(this)} />
+						<IncentivesSection activityStore={this.activityStore} playPlaylist={this.playPlaylist.bind(this)} />
 					</div>
 				</div>
 				<div className='readable-width section'>

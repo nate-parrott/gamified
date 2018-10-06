@@ -48,7 +48,8 @@ export default class Activity extends React.Component {
 	}
 	render() {
 		let { activityStore } = this.props;
-		let { messages, coins } = activityStore;
+		let { messages } = activityStore;
+		let coins = activityStore.coinBalance();
 		// let coins = 0;
 		// let messages = [
 		// 	{id: 0, from: 'admin', content: <Bubble>👋 Hey! This is your <em>activity log</em>, where you’ll see all the data I’m relentlessly collecting about you!</Bubble>},
