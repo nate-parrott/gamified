@@ -55,7 +55,7 @@ export default class IndexPage extends React.Component {
 		  <div className='index-page'>
 				<ModalPlayer playlist={this.state.playlist} onDone={() => this.setState({playlist: null})} />
 			
-				<div className='intro' onClick={() => this.setState({playlist: new ModalPlaylist([coinUnlockModalItem()])})}>
+				<div className='intro' onClick={() => this.setState({playlist: new ModalPlaylist([coinUnlockModalItem(() => {}, false)])})}>
 					<img className='readable-width' src={intro} alt="Nate Parrott dot com: developer, designer and gamification enthusiast." />
 				</div>
 				<div className='readable-width boxed-content workflow section'>

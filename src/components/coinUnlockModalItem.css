@@ -1,0 +1,41 @@
+.CoinUnlockModalContainer {
+	width: 80vw;
+	max-width: 400px;
+	position: relative;
+}
+.CoinUnlockModalContainer img {
+	width: 100%;
+	object-fit: contain;
+	max-height: 100%;
+}
+.CoinUnlockModalContainer img:not(:first-child) {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.CoinUnlockModalContainer {
+	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.CoinUnlockModalContainer.stage-preAppear, .CoinUnlockModalContainer.stage-disappear {
+	opacity: 0;
+	transform: scale(0.7, 0.7);
+}
+
+.CoinUnlockModalContainer .coin {
+	transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.CoinUnlockModalContainer.stage-disappear, .CoinUnlockModalContainer.stage-disappear {
+	transition-delay: 0.4s;
+}
+
+.CoinUnlockModalContainer.stage-preAppear .coin {
+	transform: translate(0, -10%);
+	opacity: 0;
+}
+
+.CoinUnlockModalContainer.stage-disappear .coin {
+	transform: translate(0, 50%);
+}

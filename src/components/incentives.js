@@ -40,8 +40,8 @@ const IncentiveView = ({ name, cost }) => (
 const IncentivesSection = ({ playItems, activityStore }) => {
 	return (
 		<HScroll>
-			{ Incentives.map((incentive) => {
-				return <IncentiveView name={incentive.name} cost={incentive.cost} />
+			{ Incentives.map((incentive, i) => {
+				return <IncentiveView key={i} name={incentive.name} cost={incentive.cost} />
 			} ) }
 		</HScroll>
 	)
