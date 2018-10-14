@@ -79,6 +79,7 @@ export default class IndexPage extends React.Component {
 				</div>
 				<div className='readable-width section'>
 					<h3>Why not <span className='nowrap'>consume more content? <div className='tooltip'>1 point per click</div></span></h3>
+						
 					<div className='content-tiles'>
 						<Tile src={table} alt="An augmented-reality table prototype" onClick={ () => this.playWithRewards('table', [ web('http://table.nateparrott.com/') ]) } />
 						<Tile src={subway} alt="An subway map that visualizes travel time" onClick={ () => this.playWithRewards('subway', [ web('http://subway.nateparrott.com/') ]) } />
