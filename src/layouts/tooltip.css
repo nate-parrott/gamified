@@ -23,6 +23,7 @@
 		margin-bottom: 1em;
 		width: 9em;
 		margin-right: auto;
+		position: absolute;
 	}
 	.tooltip:after {
 		top: -4px;

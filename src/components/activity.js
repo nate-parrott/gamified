@@ -1,6 +1,7 @@
 import React from 'react'
 import './activity.css';
 import coin from '../images/coin.png';
+import chevron from '../images/chevron.svg';
 
 const windowGlobal = typeof window !== 'undefined' && window;
 
@@ -20,7 +21,7 @@ const ActivityMessage = ({ message, activityStore }) => {
 export default class Activity extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { messages: [] };
+		this.state = { messages: [], expanded: false };
 		this.coinImageRef = null;
 		// setTimeout(() => {
 		// 	this.playCoinAnimation(5);
@@ -46,8 +47,12 @@ export default class Activity extends React.Component {
 			this.cancelNewAwardListener = null;
 		}
 	}
+	toggleExpanded() {
+		this.setState({ expanded: !this.state.expanded })
+	}
 	render() {
 		let { activityStore } = this.props;
+		let { expanded } = this.state;
 		let { messages } = activityStore;
 		let coins = activityStore.coinBalance();
 		// let coins = 0;
@@ -58,11 +63,13 @@ export default class Activity extends React.Component {
 		// 	{id: 3, from: 'system', content: <Bubble>Data collected!{'\n'}Browser: Chrome{'\n'}Approx. location: New York</Bubble>}
 		//
 		// ]
-		
 		return (
-			<div className='activity expanded'>
-				<div className='coin-count'>
-					<img src={coin} ref={(el) => {this.coinImageRef = el}} /><label>{coins} coins</label>
+			<div className={ expanded ? 'activity expanded' : 'activity' }>
+				<div className='coin-count activity-header' onClick={() => this.toggleExpanded()}>
+					<img src={coin} className='coin' ref={(el) => {this.coinImageRef = el}} />
+					<label>{coins} coins</label>
+					<div className='flex-space' />
+					<img src={chevron} className='chevron' />
 				</div>
 				<div className='chat'>
 					{activityStore.mostRecentMessagesReversed().map((message) => (
