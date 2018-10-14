@@ -22,7 +22,7 @@
 }
 
 .EarnedCoinsModal .count {
-	font-size: 10vh;
+	font-size: 9vh;
 	text-transform: uppercase;
 	font-weight: bold;
 }
@@ -45,6 +45,12 @@
 
 .EarnedCoinsModal .dummy {
 	opacity: 0;
+}
+
+@media screen and (max-height: 600px) {
+	.EarnedCoinsModal .dummy {
+		display: none;
+	}
 }
 
 .EarnedCoinsModal .doneButton {

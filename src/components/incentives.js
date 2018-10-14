@@ -14,19 +14,40 @@ export let Incentives = [
 		activityText: "You paid 5 coins to download my resume!"
 	},
 	{
-		cost: 5,
-		id: 'resume2',
-		name: "Test 2!",
-		playlist: [BasicPageItem({ title: 'Test 2!' })],
-		activityText: "You paid 5 coins to download my resume!"
+		cost: 15,
+		id: 'email',
+		name: "Send Me an Email",
+		playlist: [BasicPageItem({ title: 'Send me an email!' })],
+		activityText: "You paid 15 coins to send me an email!"
 	},
 	{
-		cost: 5,
-		id: 'resume3',
-		name: "Another test thing ok?",
-		playlist: [BasicPageItem({ title: 'Test 3!' })],
-		activityText: "You paid 5 coins to download my resume!"
-	}
+		cost: 24,
+		id: '2x',
+		name: "Earn 2x Every Coin",
+		playlist: [BasicPageItem({ title: 'Send me an email!' })],
+		activityText: "You paid 15 coins to send me an email!"
+	},
+	{
+		cost: 42,
+		id: 'chatroom',
+		name: "VIP Chatroom",
+		playlist: [BasicPageItem({ title: 'Send me an email!' })],
+		activityText: "You paid 15 coins to send me an email!"
+	},
+	{
+		cost: 147,
+		id: 'goldmode',
+		name: "🏆Gold Mode🏆",
+		playlist: [BasicPageItem({ title: 'Gold Mode!' })],
+		activityText: "You paid 5 coins to unlock 🏆 Gold Mode 🏆!"
+	},
+	{
+		cost: 152,
+		id: 'sticker',
+		name: "Get a Sticker in the Mail",
+		playlist: [BasicPageItem({ title: 'Send me an email!' })],
+		activityText: "You paid 15 coins to send me an email!"
+	},
 ]
 
 const IncentiveView = ({ name, cost, unlocked, onClick }) => {

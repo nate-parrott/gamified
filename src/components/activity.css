@@ -45,6 +45,7 @@
 	font-size: 20px;
 	font-weight: 500;
 	padding: 10px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .activity-header .flex-space {
 	flex-grow: 1;

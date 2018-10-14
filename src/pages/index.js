@@ -43,8 +43,15 @@ export default class IndexPage extends React.Component {
 		}
 	}
 	playWithRewards(awardId, items, options) {
+		// filter out nulls in `items` since web() may return null:
+		items = items.filter((i) => i !== null);
+		
 		let onDismiss = () => this.setState({playlist: null});
-		this.setState({ playlist: playlistWithAward(awardId, items, this.activityStore, onDismiss, options) });
+		let playlist = playlistWithAward(awardId, items, this.activityStore, onDismiss, options);
+		if (playlist.items.length === 0) {
+			return;
+		}
+		this.setState({ playlist });
 	}
 	playPlaylist(playlist) {
 		this.setState({ playlist });

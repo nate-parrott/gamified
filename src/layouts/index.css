@@ -75,6 +75,7 @@ h3 {
 	box-sizing: border-box;
 	border: 3px solid black;
 	padding-bottom: 52%;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .hover-offset {
 	box-shadow: 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1);
@@ -197,9 +198,14 @@ input {
 	appearance: none;
 	-webkit-appearance: none;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 1em;
 	padding: 10px;
 	outline: none;
+}
+@media screen and (max-width: 600px) {
+	input {
+		font-size: 16px;
+	}
 }
 input[type='email'], input[type='text'] {
 	background-color: #F7F4FF;
