@@ -12,6 +12,7 @@ import { playlistWithAward, comingSoonPage } from '../components/awardUtils.js';
 import {TradeEmailDataSection, TradeNameDataSection } from '../components/tradeDataSection.js';
 import IncentivesSection from '../components/incentives.js';
 import { coinUnlockModalItem } from '../components/coinUnlockModalItem.js';
+import QuizSection from '../components/quiz.js';
 
 // tiles:
 import hab from '../images/tiles/hab.svg'
@@ -105,6 +106,12 @@ export default class IndexPage extends React.Component {
 					<div className='content-tiles'>
 						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ], {category: 'content'}) } />
 						<Tile src={stacks} alt="An app for making your own social network" onClick={ () => this.playWithRewards('stacks', [ web(withPrefix('/stacks/index.html')) ], {category: 'content'}) } />
+					</div>
+				</div>
+				<QuizSection activityStore={this.activityStore} />
+				<div className='readable-width section'>
+					<h3><span className='nowrap'>Read more!<div className='tooltip'>1 point per click</div></span></h3>
+					<div className='content-tiles'>
 						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ comingSoonPage() ], {category: 'content'}) } />
 						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ], {category: 'content'}) } />
 					</div>

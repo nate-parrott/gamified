@@ -23,21 +23,21 @@ export let Incentives = [
 	{
 		cost: 24,
 		id: '2x',
-		name: "Earn 2x Every Coin",
+		name: "Earn 2x for every Coin",
 		playlist: [BasicPageItem({ title: 'Send me an email!' })],
 		activityText: "You paid 15 coins to send me an email!"
 	},
 	{
 		cost: 42,
 		id: 'chatroom',
-		name: "VIP Chatroom",
+		name: "Join the VIP Chatroom",
 		playlist: [BasicPageItem({ title: 'Send me an email!' })],
 		activityText: "You paid 15 coins to send me an email!"
 	},
 	{
 		cost: 147,
 		id: 'goldmode',
-		name: "🏆Gold Mode🏆",
+		name: "Unlock 🏆Gold Mode🏆",
 		playlist: [BasicPageItem({ title: 'Gold Mode!' })],
 		activityText: "You paid 5 coins to unlock 🏆 Gold Mode 🏆!"
 	},
