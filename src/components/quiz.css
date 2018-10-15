@@ -56,6 +56,10 @@
 		flex-grow: 1;
 		flex-basis: 0;
 		margin-right: 5px;
+		transform: skew(6deg);
+	}
+	.QuizCell .options > div > div {
+		transform: skew(-6deg);
 	}
 	.QuizCell .options > div:last-child {
 		margin-right: 0;
