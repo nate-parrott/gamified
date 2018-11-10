@@ -118,10 +118,13 @@ export default class IndexPage extends React.Component {
 				</div>
 				<TradeEmailDataSection activityStore={this.activityStore} />
 				<div className='readable-width section footer'>
-						October 2018. Made with <a href='https://www.gatsbyjs.org/'>Gatsby</a> and React. Thanks for reading!
+						October 2018. Made with <a href='https://www.gatsbyjs.org/'>Gatsby</a> and React. <a href='.' onClick={this.reset.bind(this)}>Reset</a> Thanks for reading!
 				</div>
 		  </div>
 		)
+	}
+	reset() {
+		this.activityStore.unsave();
 	}
 }
 

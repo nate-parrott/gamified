@@ -83,11 +83,18 @@ export default class ActivityStore {
 			unlockedIncentives: this.unlockedIncentives
 		});
 	}
+	unsave() {
+		this.storage.write({});
+	}
 	coinBalance() {
 		let coins = STARTING_COINS;
 		let multiplier = 1;
 		for (let message of this.messages) {
-			coins += (message.coins || 0) * multiplier;
+			let msgCoins = message.coins || 0;
+			if (msgCoins > 0) {
+				msgCoins *= multiplier; // multiplier does not apply to negative coins (expenditures)
+			}
+			coins += msgCoins;
 			multiplier *= message.coinMultiplier || 1;
 		}
 		return coins;
@@ -136,7 +143,7 @@ export default class ActivityStore {
 	}
 	unlockIncentive(incentive) {
 		if (this.hasIncentive(incentive.id)) return;
-		this.unlockIncentive[incentive.id] = 1;
+		this.unlockedIncentives[incentive.id] = 1;
 		if (incentive.activityText) {
 			this.addMessage({ type: 'admin', text: incentive.activityText, coins: -incentive.cost, coinMultiplier: incentive.coinMultiplier || 1, cssUnlock: incentive.cssUnlock });
 		}

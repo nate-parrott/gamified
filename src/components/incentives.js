@@ -57,7 +57,7 @@ export let Incentives = [
 const IncentiveView = ({ name, cost, unlocked, onClick }) => {
 	let className = 'IncentiveView ' + (unlocked ? 'unlocked' : '');
 	return (
-	  <div className='IncentiveView' onClick={onClick}>
+	  <div className={className} onClick={onClick}>
 			<div className='lock'>
 				<label>{cost}</label>
 			</div>
