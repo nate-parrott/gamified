@@ -14,6 +14,9 @@ body {
 	padding-top: 4%;
 	padding-bottom: 4%;
 }
+.goldMode .intro {
+	background: linear-gradient(45deg, rgba(215,195,12,1) 0%,rgba(245,239,201,1) 50%,rgba(215,195,12,1) 100%);
+}
 .readable-width {
 	display: block;
 	width: 90%;
@@ -35,6 +38,10 @@ body {
 	padding: 1em;
 	border: 3px solid black;
 	position: relative;
+}
+.goldMode .boxed-content {
+	box-shadow: 0px 0px 14px #BCA900;
+	border: 3px solid #FFF8BD;
 }
 .boxed-content h3 {
 	position: absolute;
@@ -77,11 +84,15 @@ h3 {
 	padding-bottom: 52%;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+.goldMode .tile {
+	box-shadow: 0px 0px 14px #BCA900;
+	border: 3px solid #FFF8BD;
+}
 .hover-offset {
 	box-shadow: 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1), 0 0 0 rgba(0,0,0,1);
 	transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
-.hover-offset:hover {
+body:not(.goldMode) .hover-offset:hover {
 	box-shadow: 1px 1px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1), 3px 3px 0 rgba(0,0,0,1), 4px 4px 0 rgba(0,0,0,1), 5px 5px 0 rgba(0,0,0,1), 6px 6px 0 rgba(0,0,0,1);
 	transform: translate(-5px, -5px);
 }
@@ -216,6 +227,9 @@ input[type='submit'] {
 	background-color: #5423E2;
 	border: none;
 	color: white;
+}
+.goldMode input[type='submit'] {
+	background-color: #665C00;
 }
 .footer {
 	text-align: center;

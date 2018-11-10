@@ -6,6 +6,10 @@
 	overflow: hidden;
 	box-shadow: 0 2px 40px rgba(84, 35, 226, 0.5);
 }
+.goldMode .activity {
+	background-color: #F7EFA1;
+	box-shadow: 0 2px 40px #665C00;
+}
 .activity, .activity .chat {
 	transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
@@ -47,6 +51,10 @@
 	padding: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+.goldMode .activity-header {
+	background: linear-gradient(45deg, rgba(215,195,12,1) 0%,rgba(245,239,201,1) 50%,rgba(215,195,12,1) 100%);
+	color: #665C00;
+}
 .activity-header .flex-space {
 	flex-grow: 1;
 }
@@ -85,6 +93,9 @@
 .message .bubble {
 	background-color: #5423E2;
 	color: rgba(255,255,255,0.9);
+}
+.goldMode .message .bubble {
+	background-color: #665C00;
 }
 .message.type-admin, .message.type-system {
 	margin-right: 20px;

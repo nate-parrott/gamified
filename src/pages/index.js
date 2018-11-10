@@ -86,7 +86,7 @@ export default class IndexPage extends React.Component {
 					</div>
 				</div>
 				<div className='readable-width section'>
-					<h3>Why not <span className='nowrap'>consume more content? <div className='tooltip'>1 point per click</div></span></h3>
+					<h3>Why not <span className='nowrap'>consume more content? <div className='tooltip'>5 coins per click</div></span></h3>
 						
 					<div className='content-tiles'>
 						<Tile src={table} alt="An augmented-reality table prototype" onClick={ () => this.playWithRewards('table', [ web('http://table.nateparrott.com/') ]) } />
@@ -102,7 +102,7 @@ export default class IndexPage extends React.Component {
 					</div>
 				</div>
 				<div className='readable-width section'>
-					<h3>There’s so <span className='nowrap'>much rewarding content!<div className='tooltip'>1 point per click</div></span></h3>
+					<h3>There’s so <span className='nowrap'>much rewarding content!<div className='tooltip'>5 coins per click</div></span></h3>
 					<div className='content-tiles'>
 						<Tile src={content} alt="An app for creating exciting animations" onClick={ () => this.playWithRewards('content', [ web('http://content.nateparrott.com/') ], {category: 'content'}) } />
 						<Tile src={stacks} alt="An app for making your own social network" onClick={ () => this.playWithRewards('stacks', [ web(withPrefix('/stacks/index.html')) ], {category: 'content'}) } />
@@ -110,7 +110,7 @@ export default class IndexPage extends React.Component {
 				</div>
 				<QuizSection activityStore={this.activityStore} />
 				<div className='readable-width section'>
-					<h3><span className='nowrap'>Read more!<div className='tooltip'>1 point per click</div></span></h3>
+					<h3><span className='nowrap'>Read more!<div className='tooltip'>5 coins per click</div></span></h3>
 					<div className='content-tiles'>
 						<Tile src={rwr} alt="An online vocabulary workbook based on hip-hop lyrics" onClick={ () => this.playWithRewards('rwr', [ comingSoonPage() ], {category: 'content'}) } />
 						<Tile src={babynames} alt="A neural network for generating new baby names" onClick={ () => this.playWithRewards('names', [ web(withPrefix('/names/index.html')) ], {category: 'content'}) } />
