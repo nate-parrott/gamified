@@ -30,6 +30,7 @@ export class LocalActivityStorage {
 		}
 	}
 	write(data) {
+		if (!windowGlobal) return;
 		windowGlobal.localStorage[this.key] = JSON.stringify(data);
 	}
 }
