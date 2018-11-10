@@ -13,7 +13,7 @@ export function GetGlobalActivityStore() {
 	return existing;
 }
 
-const STARTING_COINS = 200;
+const STARTING_COINS = 0;
 
 export class LocalActivityStorage {
 	constructor(key) {
@@ -75,6 +75,14 @@ export default class ActivityStore {
 			this.processMessageDirectives(message);
 		}
 	}
+	save() {
+		this.storage.write({
+			awards: this.awards,
+			messages: this.messages,
+			values: this.values,
+			unlockedIncentives: this.unlockedIncentives
+		});
+	}
 	coinBalance() {
 		let coins = STARTING_COINS;
 		let multiplier = 1;
@@ -102,14 +110,6 @@ export default class ActivityStore {
 		// 	coins: 11
 		// })
 	}
-	save() {
-		this.storage.write({
-			awards: this.awards,
-			messages: this.messages,
-			values: this.values,
-			unlockedIncentives: this.unlockedIncentives
-		});
-	}
 	onChange(callback) {
 		return this.changeAnnouncer.listen(callback);
 	}
@@ -129,6 +129,7 @@ export default class ActivityStore {
 		});
 		this.changeAnnouncer.announce(this);
 		this.newAwardAnnouncer.announce(award);
+		this.save();
 	}
 	hasIncentive(incentiveId) {
 		return !!this.unlockedIncentives[incentiveId];
@@ -140,6 +141,7 @@ export default class ActivityStore {
 			this.addMessage({ type: 'admin', text: incentive.activityText, coins: -incentive.cost, coinMultiplier: incentive.coinMultiplier || 1, cssUnlock: incentive.cssUnlock });
 		}
 		this.changeAnnouncer.announce(this);
+		this.save();
 	}
 	addMessage(message) {
 		this.messages.push({
@@ -148,6 +150,7 @@ export default class ActivityStore {
 		});
 		this.processMessageDirectives(this.messages[this.messages.length - 1]);
 		this.changeAnnouncer.announce(this);
+		this.save();
 	}
 	mostRecentMessagesReversed() {
 		const count = Math.min(60, this.messages.length);
