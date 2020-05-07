@@ -97,6 +97,7 @@ class QuizContent extends React.Component {
 		return unanswered.length ? unanswered[0].id : null;
 	}
 	render() {
+		let { activityStore } = this.props;
 		let {currentQuestionId, selectedOption} = this.state;
 		if (!currentQuestionId) {
 			return <QuizCell title="No more questions!" subtitle="Come back later, maybe?" options={[]} />;
